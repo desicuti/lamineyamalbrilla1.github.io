@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partidos de Lamine Yamal 25/26</title>
+    <style>
+        /* Fondo de campo de fútbol con franjas realistas */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial Black', Gadget, sans-serif;
+            background: repeating-linear-gradient(
+                to bottom,
+                #2e7d32 0px,
+                #2e7d32 120px,
+                #388e3c 120px,
+                #388e3c 240px
+            );
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1000px;
+            padding: 40px 20px;
+        }
+
+        /* Título Principal Ultra Destacado */
+        .main-title {
+            font-size: 4.5rem;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            margin-bottom: 20px;
+            color: #ffffff;
+            text-shadow: 4px 4px 0px #1b5e20, 8px 8px 20px rgba(0,0,0,0.5);
+            line-height: 1;
+        }
+
+        /* Botón Agenda (Nuevo) */
+        .btn-agenda {
+            display: inline-block;
+            background-color: white;
+            color: #2e7d32;
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 0px #c0c0c0;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .btn-agenda:hover {
+            transform: scale(1.05);
+            background-color: #f0f0f0;
+        }
+
+        /* Título del Partido */
+        .match-score {
+            font-size: 2.2rem;
+            font-weight: normal;
+            font-family: 'Segoe UI', sans-serif;
+            margin-bottom: 40px;
+            background-color: rgba(0, 0, 0, 0.3);
+            display: block; /* Cambiado a block para separar del botón superior */
+            padding: 10px 25px;
+            border-radius: 50px;
+            max-width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .match-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        .match-image {
+            width: 100%;
+            max-width: 850px;
+            height: auto;
+            border-radius: 12px;
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            margin-bottom: 25px;
+        }
+
+        /* Botón de análisis */
+        .btn-analysis {
+            display: inline-block;
+            background-color: white;
+            color: #1b5e20;
+            padding: 18px 40px;
+            font-size: 1.3rem;
+            font-weight: 900;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 0px #c0c0c0;
+            text-transform: uppercase;
+        }
+
+        .btn-analysis:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        /* Botón Volver al Inicio */
+        .btn-back {
+            display: inline-block;
+            margin-top: 60px;
+            margin-bottom: 40px;
+            color: white;
+            text-decoration: none;
+            font-family: 'Segoe UI', sans-serif;
+            font-weight: bold;
+            font-size: 1.1rem;
+            padding: 10px 20px;
+            border: 2px solid white;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        .btn-back:hover {
+            background-color: white;
+            color: #2e7d32;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .main-title { font-size: 2.5rem; }
+            .match-score { font-size: 1.3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="main-title">Partidos de Lamine Yamal 25/26</h1>
+        
+        <a href="https://desicuti.github.io/lamineyamalbrilla1.github.io/agendaly220226.html" class="btn-agenda">
+            Agenda de Lamine Yamal
+        </a>
+
+        <h2 class="match-score">FC Barcelona 3 - 0 Levante (22/02/26)</h2>
+
+        <div class="match-card">
+            <img src="https://www.fcbarcelona.com/fcbarcelona/photo/2026/02/22/7d6165b5-9edb-46a1-b471-99283fdfdca8/2026-02-22_FCBvsLEVANTEUD_143.JPG" 
+                 alt="Lamine Yamal vs Levante" 
+                 class="match-image">
+
+            <br>
+
+            <a href="https://desicuti.github.io/lamineyamalbrilla1.github.io/partidolyvslevante220226.html" class="btn-analysis">
+                Análisis: Lamine Yamal vs Levante - Pulsa aquí
+            </a>
+        </div>
+
+        <a href="https://desicuti.github.io/lamineyamalbrilla1.github.io/index.html" class="btn-back">
+            ← Volver al Inicio
+        </a>
+    </div>
+
+</body>
+</html>
