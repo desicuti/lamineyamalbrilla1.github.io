@@ -423,7 +423,7 @@
             <div class="popup-body">
                 <h3>NEWSROOM <span style="color:var(--barca-red)">304</span></h3>
                 <p style="text-align:center; font-weight:700; margin-bottom:15px">¡Suscríbete a la edición impresa digital!</p>
-                <form action="https://buttondown.com/api/emails/embed-subscribe/lamine_yamal_brilla" method="post">
+                <form id="newsletterForm" action="https://buttondown.com/api/emails/embed-subscribe/lamine_yamal_brilla" method="post">
                     <input type="email" name="email" class="popup-input" placeholder="TU CORREO AQUÍ..." required>
                     <input type="submit" value="UNIRME AL NEWSROOM" class="popup-submit">
                 </form>
@@ -440,13 +440,25 @@
     </footer>
 
     <script>
+        const popup = document.getElementById('newsletterPopup');
+        const form = document.getElementById('newsletterForm');
+
         function closeNewsletter() {
-            document.getElementById('newsletterPopup').style.display = 'none';
+            popup.style.display = 'none';
         }
+
+        // Si envía el formulario, guardamos que ya es suscriptor
+        form.onsubmit = function() {
+            localStorage.setItem('popupLamineVisto', 'true');
+        };
+
         window.onload = function() {
-            setTimeout(function() {
-                document.getElementById('newsletterPopup').style.display = 'flex';
-            }, 1000); 
+            // Comprobamos si ya lo vio o se suscribió
+            if (!localStorage.getItem('popupLamineVisto')) {
+                setTimeout(function() {
+                    popup.style.display = 'flex';
+                }, 1500); 
+            }
         };
     </script>
 
