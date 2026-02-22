@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análisis Lamine Yamal | Barça vs Levante</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --barca-red: #A50044;
+            --barca-blue: #004D98;
+            --dark-blue: #002d5a;
+            --gold: #EDBB00;
+            --white: #ffffff;
+            --glass: rgba(255, 255, 255, 0.07);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: radial-gradient(circle at top, #1a1a2e, #050505);
+            color: var(--white);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .infographic-container {
+            max-width: 900px;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 30px;
+            padding: 40px;
+            border: 1px solid rgba(237, 187, 0, 0.2);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: linear-gradient(to right, #fff, var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .match-info {
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: var(--glass);
+            padding: 20px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: 0.3s;
+        }
+
+        .stat-card:hover { transform: scale(1.05); background: rgba(255,255,255,0.12); }
+
+        .stat-value {
+            display: block;
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--gold);
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: #ccc;
+        }
+
+        /* Analysis Section */
+        .analysis-box {
+            background: linear-gradient(145deg, rgba(165, 0, 68, 0.1), rgba(0, 77, 152, 0.1));
+            padding: 30px;
+            border-radius: 25px;
+            margin-bottom: 30px;
+            border-left: 5px solid var(--barca-red);
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .text-detail {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: #ddd;
+        }
+
+        .tags {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .tag-pos { background: #1b4d3e; color: #2ecc71; }
+        .tag-neg { background: #4d1b1b; color: #e74c3c; }
+
+        /* Buttons Area */
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 50px;
+            align-items: center;
+        }
+
+        .btn {
+            width: 80%;
+            padding: 15px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            text-align: center;
+            transition: 0.4s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .btn-sofa { background: var(--dark-blue); color: white; border: 1px solid #0056ac; }
+        .btn-day { background: var(--barca-blue); color: white; }
+        .btn-home { background: transparent; color: var(--white); border: 1px solid var(--white); }
+
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.4); opacity: 0.9; }
+
+        .highlights {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .highlights { grid-template-columns: 1fr; }
+            .infographic-container { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="infographic-container">
+    <div class="header">
+        <div class="match-info">LA LIGA | JORNADA 22/02/26</div>
+        <h1>Lamine Yamal vs Levante</h1>
+        <p>Análisis de rendimiento: "El Destello que no fue Incendio"</p>
+    </div>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <span class="stat-value">88'</span>
+            <span class="stat-label">Minutos</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-value">92%</span>
+            <span class="stat-label">Precisión Pases</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-value">10</span>
+            <span class="stat-label">Regates Intentados</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-value">94</span>
+            <span class="stat-label">Toques totales</span>
+        </div>
+    </div>
+
+    <div class="analysis-box">
+        <h2><i class="fas fa-microscope"></i> Análisis del Partido</h2>
+        <p class="text-detail">
+            En un encuentro dominado por el Barça (3-0), Lamine Yamal tuvo una actuación **correcta pero secundaria**. Aunque fue el jugador que más regates intentó (10), la efectividad no fue la de sus mejores noches. Su banda estuvo activa, pero el peso del ataque se desplazó hacia el centro y la banda de Cancelo (MVP). Intentó una jugada "maravilla" que levantó al público, pero no logró traducir su talento en goles o asistencias esta vez.
+        </p>
+    </div>
+
+    <div class="highlights">
+        <div class="analysis-box" style="border-left-color: #2ecc71;">
+            <h2 style="color: #2ecc71;"><i class="fas fa-plus-circle"></i> Lo Positivo</h2>
+            <ul class="text-detail" style="padding-left: 20px;">
+                <li>Actitud incansable pidiendo el balón.</li>
+                <li>Gran precisión en campo rival (91%).</li>
+                <li>Obligó al Levante a encerrarse.</li>
+            </ul>
+        </div>
+        <div class="analysis-box" style="border-left-color: #e74c3c;">
+            <h2 style="color: #e74c3c;"><i class="fas fa-minus-circle"></i> A Mejorar</h2>
+            <ul class="text-detail" style="padding-left: 20px;">
+                <li>Poca incidencia en el área (0 tiros a puerta).</li>
+                <li>21 posesiones perdidas.</li>
+                <li>Falta de desequilibrio final.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="analysis-box" style="border-left: 5px solid var(--gold); background: rgba(237, 187, 0, 0.05);">
+        <h2 style="color: var(--gold);"><i class="fas fa-flag-checkered"></i> Conclusión General</h2>
+        <p class="text-detail">
+            Lamine **cumplió, pero no brilló**. Fue un engranaje más en la maquinaria de Flick, permitiendo que otros lucieran gracias a la amplitud que proporcionó. Su salida en el 87' por Bardghji cerró un partido donde demostró madurez táctica, aunque nos faltó ese "punch" eléctrico al que nos tiene acostumbrados.
+        </p>
+    </div>
+
+    <div class="btn-group">
+        <a href="https://www.sofascore.com/es/football/match/levante-ud-barcelona/rgbsZgb#id:14083567" target="_blank" class="btn btn-sofa">
+            <i class="fas fa-chart-line"></i> Ver estadísticas en Sofascore
+        </a>
+        <a href="https://desicuti.github.io/lamineyamalbrilla1.github.io/noticiasgeneral220226.html" class="btn btn-day">
+            <i class="fas fa-arrow-left"></i> Volver a noticias del día
+        </a>
+        <a href="https://desicuti.github.io/lamineyamalbrilla1.github.io/index.html" class="btn btn-home">
+            <i class="fas fa-home"></i> Volver a inicio
+        </a>
+    </div>
+</div>
+
+</body>
+</html>
