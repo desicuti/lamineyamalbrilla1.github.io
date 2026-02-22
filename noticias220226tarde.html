@@ -189,12 +189,16 @@
             border-bottom: 3px solid var(--black);
         }
 
-        /* ESTILO BOTÓN VOLVER */
+        /* ESTILO BOTONES VOLVER */
         .back-container {
             padding: 40px;
             text-align: center;
             background: var(--white);
             border-bottom: 3px solid var(--black);
+            display: flex;
+            justify-content: center;
+            gap: 20px; 
+            flex-wrap: wrap; 
         }
 
         .btn-back {
@@ -205,9 +209,10 @@
             text-decoration: none;
             font-family: 'Archivo Black', sans-serif;
             text-transform: uppercase;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             transition: 0.3s;
             border: 3px solid var(--black);
+            min-width: 250px;
         }
 
         .btn-back:hover {
@@ -233,6 +238,7 @@
             .news-box { border-right: none; border-bottom: 3px solid var(--black); }
             header, .news-box, .sidebar, .bottom-item, .match-highlight { padding: 30px 20px; }
             .match-highlight { text-align: center; }
+            .btn-back { width: 100%; }
         }
     </style>
 </head>
@@ -266,6 +272,9 @@
         <div class="news-box">
             <span class="badge red">CRÓNICA DE UN ACOSO</span>
             <h2>EL HARTAZGO DE LA ESTRELLA</h2>
+            
+            <img src="https://fotografias-2.larazon.es/clipping/cmsimages01/2026/02/22/53BFDEB3-322E-4242-86A1-0F0B4E5F5CD0/98.jpg?crop=4188,2356,x0,y218&width=1900&height=1069&optimize=low&format=webply" class="img-sidebar" alt="Lamine Yamal Oficial">
+
             <p>Lamine Yamal ha dicho basta. Tras una semana donde las redes sociales se han inundado de <strong>noticias falsas</strong> que iban desde un trágico fallecimiento hasta acusaciones graves en su domicilio, el entorno del jugador y el propio club han salido al paso.</p>
             
             <p>Fuentes cercanas aseguran que el chico de Rocafonda, pese a su aparente frialdad, está cansado de que se mancille su nombre para conseguir clics. Este 22 de febrero, el eco de los bulos de TikTok empieza a apagarse, dejando paso a una reflexión necesaria sobre la toxicidad digital.</p>
@@ -306,6 +315,9 @@
     </section>
 
     <section class="back-container">
+        <a href="https://desicuti.github.io/lamineyamalbrilla1.github.io/noticiasgeneral220226.html" class="btn-back">
+            <i class="fas fa-newspaper"></i> Volver a Noticias
+        </a>
         <a href="https://desicuti.github.io/lamineyamalbrilla1.github.io/index.html" class="btn-back">
             <i class="fas fa-home"></i> Volver al Inicio
         </a>
