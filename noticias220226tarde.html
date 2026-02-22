@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lamine Yamal | NEWSROOM 304 - Edición Tarde</title>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Outfit:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-yellow: #FEF9E7; 
+            --accent-gold: #EDBB00;
+            --barca-red: #A50044;
+            --barca-blue: #004D98;
+            --black: #0F0F0F;
+            --gray: #444444;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-yellow);
+            color: var(--black);
+            font-family: 'Outfit', sans-serif;
+            line-height: 1.3;
+        }
+
+        /* Nav */
+        nav {
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--black);
+            position: sticky;
+            top: 0;
+            background: var(--bg-yellow);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 2rem;
+            text-decoration: none;
+            color: var(--black);
+        }
+
+        /* Notificación Urgente */
+        .breaking-bar {
+            background: var(--barca-red);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-weight: 900;
+            text-transform: uppercase;
+            border-bottom: 3px solid var(--black);
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        header {
+            padding: 40px 50px;
+            border-bottom: 3px solid var(--black);
+            background: var(--white);
+            text-align: center;
+        }
+
+        header h1 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: clamp(3rem, 12vw, 8rem);
+            line-height: 0.8;
+            text-transform: uppercase;
+            margin: 0;
+        }
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            border-bottom: 3px solid var(--black);
+        }
+
+        .news-box {
+            padding: 50px;
+            border-right: 3px solid var(--black);
+        }
+
+        .sidebar {
+            padding: 50px;
+            background: #fff;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 5px 12px;
+            background: var(--black);
+            color: var(--bg-yellow);
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            margin-bottom: 15px;
+        }
+
+        .badge.red { background: var(--barca-red); color: white; }
+        .badge.blue { background: var(--barca-blue); color: white; }
+        .badge.gold { background: var(--accent-gold); color: var(--black); }
+
+        h2 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 20px;
+            line-height: 1;
+            text-transform: uppercase;
+        }
+
+        h3 { font-family: 'Archivo Black', sans-serif; font-size: 1.8rem; margin-bottom: 15px; text-transform: uppercase; }
+
+        p { font-size: 1.05rem; margin-bottom: 20px; color: var(--gray); font-weight: 400; text-align: justify; }
+
+        .fact-check {
+            background: #fff;
+            border: 3px solid var(--black);
+            padding: 25px;
+            margin-top: 20px;
+            box-shadow: 10px 10px 0px var(--black);
+        }
+
+        .img-sidebar {
+            width: 100%;
+            height: auto;
+            border: 3px solid var(--black);
+            margin: 15px 0;
+        }
+
+        /* Bloque Partido Levante */
+        .match-highlight {
+            background: var(--black);
+            color: var(--white);
+            padding: 40px 50px;
+            border-bottom: 3px solid var(--black);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .match-highlight h2 { margin-bottom: 10px; color: var(--accent-gold); }
+
+        .btn-match {
+            background: var(--accent-gold);
+            color: var(--black);
+            padding: 20px 40px;
+            text-decoration: none;
+            font-weight: 900;
+            text-transform: uppercase;
+            border: 3px solid var(--white);
+            transition: 0.3s;
+            white-space: nowrap;
+        }
+
+        .btn-match:hover {
+            transform: scale(1.05);
+            background: var(--white);
+        }
+
+        .bottom-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .bottom-item {
+            padding: 50px;
+            border-right: 3px solid var(--black);
+            border-bottom: 3px solid var(--black);
+        }
+
+        footer {
+            padding: 60px 50px;
+            background: var(--black);
+            color: var(--bg-yellow);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-logo { font-family: 'Archivo Black', sans-serif; font-size: 3rem; }
+
+        @media (max-width: 900px) {
+            .main-grid, .bottom-grid, .match-highlight { grid-template-columns: 1fr; flex-direction: column; }
+            .news-box { border-right: none; border-bottom: 3px solid var(--black); }
+            header, .news-box, .sidebar, .bottom-item, .match-highlight { padding: 30px 20px; }
+            .match-highlight { text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="breaking-bar">
+        ⚠️ VERIFICACIÓN: Lamine Yamal se encuentra en perfecto estado. Desmentidos los bulos de TikTok ⚠️
+    </div>
+
+    <nav>
+        <a href="#" class="logo">LY.304</a>
+        <div style="font-weight: 900;">TARDE | 22 FEB 2026</div>
+    </nav>
+
+    <header>
+        <h1>EXCLUSIVA<br>LA TARDE</h1>
+    </header>
+
+    <section class="match-highlight">
+        <div>
+            <span class="badge gold">FINALIZADO</span>
+            <h2>BARÇA 3 - 0 LEVANTE</h2>
+            <p style="color: #bbb; margin-bottom: 0;">Lamine disputó 88 minutos a gran nivel táctico. Descubre todas sus métricas, pases clave y el mapa de calor del encuentro.</p>
+        </div>
+        <a href="https://desicuti.github.io/lamineyamalbrilla1.github.io/partidolyvslevante220226.html" class="btn-match">
+            ANÁLISIS COMPLETO DEL PARTIDO <i class="fas fa-arrow-right"></i>
+        </a>
+    </section>
+
+    <section class="main-grid">
+        <div class="news-box">
+            <span class="badge red">CRÓNICA DE UN ACOSO</span>
+            <h2>EL HARTAZGO DE LA ESTRELLA</h2>
+            <p>Lamine Yamal ha dicho basta. Tras una semana donde las redes sociales se han inundado de <strong>noticias falsas</strong> que iban desde un trágico fallecimiento hasta acusaciones graves en su domicilio, el entorno del jugador y el propio club han salido al paso.</p>
+            
+            <p>Fuentes cercanas aseguran que el chico de Rocafonda, pese a su aparente frialdad, está cansado de que se mancille su nombre para conseguir clics. Este 22 de febrero, el eco de los bulos de TikTok empieza a apagarse, dejando paso a una reflexión necesaria sobre la toxicidad digital.</p>
+            
+            <div class="fact-check">
+                <h4 style="font-weight: 900; color: var(--barca-red); margin-bottom: 10px;">FACT-CHECK OFICIAL:</h4>
+                <ul style="list-style: none; font-weight: 700; line-height: 1.6;">
+                    <li><i class="fas fa-times-circle"></i> NO hay ningún accidente ni fallecimiento.</li>
+                    <li><i class="fas fa-times-circle"></i> NO existe ninguna agresión ni parte policial.</li>
+                    <li><i class="fas fa-check-circle"></i> EL JUGADOR está entrenando y compitiendo al 100%.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <span class="badge blue">ALTO RENDIMIENTO</span>
+            <h3>EL RETO DEL AYUNO</h3>
+            <img src="https://scontent.fmad8-1.fna.fbcdn.net/v/t39.30808-6/634588603_1573637668098006_3792049052961386367_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=100&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=AAL3qrXxooQQ7kNvwGnoSPk&_nc_oc=AdnUXqWUjny6WAFCBogAkuKt_ediROl8KLlejPV8wM7-yYYpYJS2x7SUnplIloxqqZs&_nc_zt=23&_nc_ht=scontent.fmad8-1.fna&_nc_gid=ZgO2a8DKPvzGQcX1UgK0EA&oh=00_AfvGPfjgqo8RShhieqMs4kOA1eawAHjfWFwR3vJBQNEd_Q&oe=69A0F9D9" class="img-sidebar" alt="Lamine Yamal Fe">
+            <p>Desde el 18 de febrero, Lamine Yamal ha iniciado su segundo Ramadán como profesional. El Barça ha implementado un <strong>blindaje nutricional</strong> para evitar la pérdida de masa muscular y explosividad.</p>
+            <p style="font-size: 0.9rem; border-left: 3px solid var(--accent-gold); padding-left: 15px;">
+                "Es una cuestión de fe y disciplina. El club me ayuda con los horarios de hidratación nocturna", explica Lamine sobre este periodo que se extenderá hasta el 19 de marzo.
+            </p>
+            <a href="https://desicuti.github.io/lamineyamalbrilla1.github.io/planlyramadan2026.html" style="font-weight: 900; color: var(--black); text-decoration: none; border-bottom: 2px solid var(--black);">VER PLAN NUTRICIONAL →</a>
+        </div>
+    </section>
+
+    <section class="bottom-grid">
+        <div class="bottom-item">
+            <span class="badge">IMAGEN PÚBLICA</span>
+            <h3>Estrella en Crecimiento</h3>
+            <p>La foto actual de Lamine es la de un líder deportivo que empieza a poner límites personales. Su madurez al gestionar los ataques a su reputación está impresionando a los patrocinadores.</p>
+        </div>
+        <div class="bottom-item">
+            <span class="badge blue">PRÓXIMO OBJETIVO</span>
+            <h3>Mente en la Copa</h3>
+            <p>Tras cumplir ante el Levante, el foco se desplaza a las semifinales de Copa contra el Atleti. El plan de Flick es mantener la titularidad de Lamine para sentenciar la eliminatoria.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-logo">304</div>
+        <div style="text-align: right; font-weight: 700;">
+            <p>NEWSROOM 304 - FAN SITE OFICIAL</p>
+            <p>2026 &copy; TODOS LOS DERECHOS RESERVADOS</p>
+        </div>
+    </footer>
+
+</body>
+</html>
