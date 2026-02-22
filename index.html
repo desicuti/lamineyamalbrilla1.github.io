@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lamine Yamal | El Futuro es Ahora</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --barca-red: #A50044;
+            --barca-blue: #004D98;
+            --gold: #EDBB00;
+            --white: #ffffff;
+            --dark: #121212;
+            --glass: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #0a0a0a;
+            color: var(--white);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* Hero Section */
+        header {
+            height: 80vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)), 
+                        url('https://scontent.fmad8-1.fna.fbcdn.net/v/t39.30808-6/635137841_122114971047218179_2938152567307357165_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=2a1932&_nc_ohc=r1V5vCEnKXcQ7kNvwGYo_22&_nc_oc=AdmhrhCLY6GEPBcKRY1Egqbupx7ZfBqI0olqYT5Zr8aKIaPrzImbeFNev7ZGfPmmwwE&_nc_zt=23&_nc_ht=scontent.fmad8-1.fna&_nc_gid=jUutFdYd2SJGkPnpFRwsVQ&oh=00_AftGfelKd7Ig0L_l52FJRQDh1mqHLT-ATvOi2K6C5anIbQ&oe=69A110EC') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        header h1 {
+            font-size: clamp(3rem, 10vw, 6rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #fff, var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+            font-size: 1.5rem;
+            color: var(--gold);
+            font-weight: 300;
+        }
+
+        nav {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            padding: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+        nav a:hover { color: var(--gold); }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 60px 20px;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-align: center;
+            border-left: 5px solid var(--barca-red);
+            padding-left: 15px;
+        }
+
+        .curiosidades-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #1a1a1a;
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid #333;
+            transition: 0.4s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--barca-blue);
+        }
+
+        .card i {
+            color: var(--gold);
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        /* Secciones de Video */
+        .video-section {
+            background: #000;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .video-thumbnail-container {
+            max-width: 800px;
+            margin: 0 auto 20px;
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 0 40px rgba(165, 0, 68, 0.3);
+            cursor: pointer;
+            display: block;
+        }
+
+        .video-thumbnail-container img {
+            width: 100%;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .video-thumbnail-container:hover img {
+            transform: scale(1.05);
+        }
+
+        .play-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background 0.3s;
+        }
+
+        .play-overlay i {
+            font-size: 5rem;
+            color: var(--white);
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        .video-thumbnail-container:hover .play-overlay {
+            background: rgba(0,0,0,0.1);
+        }
+
+        .video-thumbnail-container:hover .play-overlay i {
+            transform: scale(1.15);
+            color: var(--gold);
+        }
+
+        .video-caption {
+            color: var(--gold);
+            font-weight: bold;
+            margin-bottom: 40px;
+        }
+
+        .btn-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-news { background-color: var(--barca-blue); color: white; }
+        .btn-agenda { background-color: var(--barca-red); color: white; }
+        .btn-info { background-color: var(--gold); color: var(--dark); }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: #050505;
+            color: #555;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 3.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>LAMINE YAMAL</h1>
+        <p>El niño de Rocafonda que conquistó el mundo</p>
+    </header>
+
+    <nav>
+        <a href="#curiosidades">Curiosidades</a>
+        <a href="#videos">Mis Vídeos</a>
+        <a href="#musica">Nueva Canción</a>
+        <a href="#noticias">Contacto</a>
+    </nav>
+
+    <div class="container" id="curiosidades">
+        <h2>Curiosidades del 304</h2>
+        <div class="curiosidades-grid">
+            <div class="card">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>El Barrio 304</h3>
+                <p>Celebra sus goles haciendo el número 304, código postal de su barrio Rocafonda en Mataró.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-history"></i>
+                <h3>Récord Histórico</h3>
+                <p>El goleador más joven de la historia de la Eurocopa (edición 2024) con solo 16 años.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-user-friends"></i>
+                <h3>Homenaje en su nombre</h3>
+                <p>Su nombre Lamine Yamal fue elegido en honor a dos personas que ayudaron a su familia.</p>
+            </div>
+        </div>
+    </div>
+
+    <section class="video-section" id="videos">
+        <div class="container">
+            <h2>Mis Vídeos de YouTube</h2>
+            <a href="https://www.youtube.com/watch?v=0uCqnlEe5BI" target="_blank" class="video-thumbnail-container">
+                <img src="https://i9.ytimg.com/vi/0uCqnlEe5BI/maxresdefault.jpg?v=699a2be9&sqp=CLjn7MwG&rs=AOn4CLA06nkRAVs3r6DgwnLw7iXHO4ZaLA" alt="Información Lamine Yamal">
+                <div class="play-overlay">
+                    <i class="fas fa-play-circle"></i>
+                </div>
+            </a>
+            <p class="video-caption">Haz clic para ver mi historia en YouTube</p>
+        </div>
+    </section>
+
+    <section class="video-section" id="musica" style="padding-top: 0;">
+        <div class="container">
+            <h2>Nueva Canción</h2>
+            <a href="https://youtu.be/vTi3nxxKWwM" target="_blank" class="video-thumbnail-container">
+                <img src="https://i9.ytimg.com/vi/vTi3nxxKWwM/maxresdefault.jpg?v=699a9867&sqp=CLjn7MwG&rs=AOn4CLARuBenQPotVaLcqoktXQKLzAINaw" alt="Nueva Canción Lamine Yamal">
+                <div class="play-overlay">
+                    <i class="fas fa-music"></i>
+                </div>
+            </a>
+            <p class="video-caption">Escucha mi nuevo tema musical oficial</p>
+        </div>
+    </section>
+
+    <div class="container" id="noticias">
+        <h2>Enlaces de Interés</h2>
+        <div class="btn-container">
+            <a href="https://as.com/noticias/lamine-yamal/" target="_blank" class="btn btn-news">
+                <i class="fas fa-newspaper"></i> Últimas Noticias
+            </a>
+            <a href="#" class="btn btn-agenda">
+                <i class="fas fa-calendar-alt"></i> Ver Mi Agenda
+            </a>
+            <a href="#" class="btn btn-info">
+                <i class="fas fa-chart-pie"></i> Infografías
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Fan Site Lamine Yamal. Creado con pasión por el fútbol.</p>
+    </footer>
+
+</body>
+</html>
