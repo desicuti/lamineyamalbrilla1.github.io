@@ -132,6 +132,34 @@
 
         .bottom-item:last-child { border-right: none; }
 
+        /* --- NUEVOS ESTILOS PARA BOTONES --- */
+        .navigation-buttons {
+            padding: 40px 50px;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            background: var(--bg-yellow);
+            border-bottom: 3px solid var(--black);
+        }
+
+        .btn-nav {
+            text-decoration: none;
+            color: var(--black);
+            font-family: 'Archivo Black', sans-serif;
+            text-transform: uppercase;
+            padding: 15px 30px;
+            border: 3px solid var(--black);
+            transition: all 0.2s ease;
+            text-align: center;
+        }
+
+        .btn-nav:hover {
+            background: var(--black);
+            color: var(--bg-yellow);
+            box-shadow: 5px 5px 0px var(--barca-red);
+        }
+        /* ---------------------------------- */
+
         footer {
             padding: 60px 50px;
             background: var(--black);
@@ -148,6 +176,7 @@
             .news-box { border-right: none; border-bottom: 3px solid var(--black); }
             header, .news-box, .sidebar, .bottom-item { padding: 30px 20px; }
             h2 { font-size: 2.5rem; }
+            .navigation-buttons { flex-direction: column; padding: 30px 20px; }
         }
     </style>
 </head>
@@ -207,6 +236,11 @@
             <p>Lamine Yamal liderará el ataque azulgrana en la decisiva semifinal contra el Atlético de Madrid tras su gran rendimiento en los partidos previos.</p>
         </div>
     </section>
+
+    <div class="navigation-buttons">
+        <a href="https://desicuti.github.io/lamineyamalbrilla1.github.io/noticiasgeneral220226.html" class="btn-nav">Volver a noticias</a>
+        <a href="https://desicuti.github.io/lamineyamalbrilla1.github.io/" class="btn-nav">Volver al inicio</a>
+    </div>
 
     <footer>
         <div class="footer-logo">304</div>
