@@ -8,7 +8,7 @@
         /* Estilos generales y fondo */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #004d98 0%, #002d5a 100%); /* Azul profundo */
+            background: linear-gradient(135deg, #004d98 0%, #002d5a 100%);
             color: white;
             display: flex;
             flex-direction: column;
@@ -16,53 +16,81 @@
             justify-content: center;
             min-height: 100vh;
             margin: 0;
+            padding: 20px;
             text-align: center;
         }
 
         h1 {
             font-size: 2.5rem;
-            margin-bottom: 2rem;
+            margin-bottom: 0.5rem;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        p {
+            margin-bottom: 2rem;
         }
 
         /* Contenedor de botones */
         .container {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 30px;
             width: 90%;
             max-width: 400px;
         }
 
-        /* Estilo de los botones */
-        .btn {
-            background-color: #a50044; /* Granate oficial */
-            color: white;
-            padding: 18px 25px;
-            border: none;
-            border-radius: 12px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
+        /* Estilo de los bloques (Ahora todo es un enlace) */
+        .card {
+            display: flex;
+            flex-direction: column;
             text-decoration: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
         }
 
-        /* Efecto al pasar el ratón */
-        .btn:hover {
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px 12px 0 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            display: block;
+        }
+
+        /* Estilo de los botones (Visualmente iguales, pero actúan dentro del card) */
+        .btn {
+            background-color: #a50044;
+            color: white;
+            padding: 18px 25px;
+            border-radius: 0 0 12px 12px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            display: block;
+        }
+
+        /* Efecto hover en todo el bloque */
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card:hover .btn {
             background-color: #db005a;
-            transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(0,0,0,0.4);
         }
 
-        /* Botón de volver (especial) */
+        /* Botón de volver */
         .btn-back {
             background-color: transparent;
             border: 2px solid white;
             margin-top: 30px;
             font-size: 0.9rem;
             padding: 12px;
+            border-radius: 12px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
         }
 
         .btn-back:hover {
@@ -77,10 +105,18 @@
     <p>Explora la trayectoria del joven talento</p>
 
     <div class="container">
-        <a href="#" class="btn">Infancia de Lamine Yamal</a>
-        <a href="#" class="btn">Curiosidades sobre Lamine Yamal</a>
         
-        <a href="https://desicuti.github.io/lamineyamalbrilla1.github.io/index.html" class="btn btn-back">
+        <a href="https://desicuti.github.io/lamineyamalbrilla1.github.io/infografia_lamine.html" class="card">
+            <img src="https://media-cldnry.s-nbcnews.com/image/upload/rockcms/2024-07/240710-Lionel-Messi-Lamine-Yamal-al-0931-214502.jpg" alt="Lamine Yamal e infancia">
+            <span class="btn">Infancia de Lamine Yamal</span>
+        </a>
+
+        <a href="https://desicuti.github.io/lamineyamalbrilla1.github.io/lycuriosidades.html" class="card">
+            <img src="https://album.mediaset.es/eimg/2024/09/12/lamine-yamal_d2c3.jpg?w=1200&h=900" alt="Curiosidades Lamine Yamal">
+            <span class="btn">Curiosidades sobre Lamine Yamal</span>
+        </a>
+        
+        <a href="https://desicuti.github.io/lamineyamalbrilla1.github.io/index.html" class="btn-back">
             Volver al inicio
         </a>
     </div>
