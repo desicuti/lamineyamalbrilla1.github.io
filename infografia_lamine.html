@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía: La Infancia de Lamine Yamal</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
+
+        :root {
+            --azul-barca: #004d98;
+            --grana-barca: #a50044;
+            --amarillo-dorado: #edbb00;
+            --fondo: #f8f9fa;
+            --texto: #333;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--fondo);
+            color: var(--texto);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, var(--azul-barca) 0%, var(--grana-barca) 100%);
+            color: white;
+            border-radius: 15px;
+            width: 100%;
+            max-width: 1000px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--amarillo-dorado);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            font-style: italic;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 10px auto 0;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .card-header {
+            background-color: var(--azul-barca);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .card-header.grana {
+            background-color: var(--grana-barca);
+        }
+
+        .card-body {
+            padding: 25px;
+        }
+
+        .card-body p {
+            margin: 0 0 15px 0;
+            line-height: 1.6;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: var(--amarillo-dorado);
+            color: var(--azul-barca);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .timeline {
+            margin-top: 50px;
+            max-width: 1000px;
+            width: 100%;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .timeline h2 {
+            text-align: center;
+            color: var(--azul-barca);
+            margin-bottom: 30px;
+        }
+
+        .step {
+            display: flex;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .step:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .step-icon {
+            font-size: 2rem;
+            margin-right: 20px;
+            color: var(--grana-barca);
+        }
+
+        .step-content h4 {
+            margin: 0 0 5px 0;
+            color: var(--azul-barca);
+            font-size: 1.2rem;
+        }
+
+        .step-content p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        .interaction-hint {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Lamine Yamal</h1>
+        <p>"No tuve la mejor infancia del mundo, pero mi madre hacía que solo viera lo bonito" [cite: 9, 18]</p>
+    </div>
+
+    <div class="grid-container">
+        
+        <div class="card" onclick="this.querySelector('.more-info').style.display = this.querySelector('.more-info').style.display === 'block' ? 'none' : 'block';">
+            <div class="card-header">
+                🌍 Raíces y Familia
+            </div>
+            <div class="card-body">
+                <span class="badge">Orígenes Humildes</span>
+                <p>Hijo de Mounir Nasraoui, pintor de edificios de Larache (Marruecos), y Sheila Ebana, camarera de Bata (Guinea Ecuatorial).</p>
+                <p><strong>El origen de su nombre:</strong> "Lamine Yamal" fue elegido en honor a dos personas que ayudaron económicamente a sus padres antes de que él naciera.</p>
+                <div class="more-info" style="display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #ccc; color: var(--grana-barca); font-size: 0.9rem;">
+                    <em>Dato extra:</em> Sus padres se separaron cuando él tenía tres años, lo que marcó la logística de sus entrenamientos[cite: 5, 119, 345].
+                </div>
+            </div>
+        </div>
+
+        <div class="card" onclick="this.querySelector('.more-info').style.display = this.querySelector('.more-info').style.display === 'block' ? 'none' : 'block';">
+            <div class="card-header grana">
+                🏘️ El Barrio 304
+            </div>
+            <div class="card-body">
+                <span class="badge">Rocafonda, Mataró</span>
+                <p>Nació en Esplugues de Llobregat (13 de julio de 2007) [cite: 2, 226], pero creció en Rocafonda, un barrio obrero y humilde con mezcla de procedencias[cite: 7, 274].</p>
+                <p><strong>Identidad:</strong> Celebra sus goles dibujando con los dedos el "304", los últimos dígitos del código postal (08304) de su barrio.</p>
+                <div class="more-info" style="display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #ccc; color: var(--azul-barca); font-size: 0.9rem;">
+                    <em>Dato extra:</em> Aprendió a jugar midiendo sus habilidades con chicos mayores en plazas y pistas improvisadas del barrio[cite: 8, 279].
+                </div>
+            </div>
+        </div>
+
+        <div class="card" onclick="this.querySelector('.more-info').style.display = this.querySelector('.more-info').style.display === 'block' ? 'none' : 'block';">
+            <div class="card-header">
+                ❤️ Pilares Vitales
+            </div>
+            <div class="card-body">
+                <span class="badge">Filtro Emocional</span>
+                <p>Su madre, Sheila, actuó como el "filtro" emocional de sus primeros años, logrando que disfrutara a pesar de las dificultades[cite: 9, 46].</p>
+                <p><strong>Los consejos de la abuela:</strong> Su abuela paterna, Fátima (73 años), le da dos reglas: "que no me ponga ropa negra y que sonría y cuide a mis padres"[cite: 44].</p>
+                <div class="more-info" style="display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #ccc; color: var(--grana-barca); font-size: 0.9rem;">
+                    <em>Dato extra:</em> Lamine ha calificado a su madre como "Mi primer gran amor"[cite: 43].
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="timeline">
+        <h2>⚽ Los Primeros Toques (Antes de la Fama)</h2>
+        
+        <div class="step">
+            <div class="step-icon">👟</div>
+            <div class="step-content">
+                <h4>Fútbol de Calle</h4>
+                <p>Sus inicios no fueron en entrenamientos formales, sino como un juego constante en la calle midiendo fuerzas con jóvenes mayores en Rocafonda[cite: 7, 8].</p>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-icon">🛡️</div>
+            <div class="step-content">
+                <h4>CF La Torreta (Aprox. 4 a 7 años)</h4>
+                <p>Su primer club modesto. Llegó allí por "necesidades familiares" (trayectos y rutinas). Sus padres hacían un esfuerzo colectivo para llevarlo a los entrenamientos[cite: 12, 13, 14, 120].</p>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-icon">🌟</div>
+            <div class="step-content">
+                <h4>Abril 2014: La Llegada al FC Barcelona</h4>
+                <p>Con solo 7 años, y tras atraer también el interés del Espanyol, la red de ojeadores del Barça lo incorpora a la Masía, dando fin a su etapa pre-Barça[cite: 15, 16, 17, 351, 647].</p>
+            </div>
+        </div>
+    </div>
+
+    <p class="interaction-hint">👆 Haz clic en las tarjetas superiores para revelar datos ocultos sobre su infancia.</p>
+
+</body>
+</html>
