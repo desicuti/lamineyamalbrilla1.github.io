@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noticias Lamine Yamal - 22/02/26</title>
+    <style>
+        :root {
+            --azul-barca: #004d98;
+            --grana-barca: #a50044;
+            --dorado: #edbb00;
+            --blanco: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 100%);
+            color: var(--blanco);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 3rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            max-width: 500px;
+            width: 90%;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .fecha-destacada {
+            color: var(--dorado);
+            display: block;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn-noticias {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--azul-barca), var(--grana-barca));
+            color: white;
+            padding: 18px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(165, 0, 68, 0.3);
+            margin-bottom: 1.5rem; /* Ajustado para que no se peguen los botones */
+            line-height: 1.4;
+            width: 80%; /* Para que ambos botones tengan un ancho similar */
+        }
+
+        .btn-noticias:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(165, 0, 68, 0.5);
+        }
+
+        .btn-volver {
+            display: block;
+            color: #aaa;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .btn-volver:hover {
+            color: var(--blanco);
+            text-decoration: underline;
+        }
+
+        .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="icon">⚽</div>
+        <h1>Actualidad Lamine</h1>
+        <span class="fecha-destacada">Domingo, 22 de Febrero de 2026</span>
+
+        <a href="#" class="btn-noticias">
+            Para ver las noticias de Lamine Yamal <br>
+            a fecha del 22/02/26 por la tarde, pulsa aquí
+        </a>
+
+        <a href="https://desicuti.github.io/lamineyamalbrilla1.github.io/noticias220226manana.html" class="btn-noticias">
+            Para ver las noticias de Lamine Yamal <br>
+            a fecha del 22/02/26, por la mañana, pulsa aquí
+        </a>
+
+        <hr style="opacity: 0.1; margin: 2rem 0;">
+
+        <a href="https://desicuti.github.io/lamineyamalbrilla1.github.io/" class="btn-volver">
+            &larr; Volver al inicio
+        </a>
+    </div>
+
+</body>
+</html>
