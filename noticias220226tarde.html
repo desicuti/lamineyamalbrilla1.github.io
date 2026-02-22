@@ -13,11 +13,6 @@
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="LY.304 Newsroom">
 
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Lamine Yamal | NEWSROOM 304">
-    <meta name="twitter:description" content="Verificación oficial: Lamine Yamal se encuentra en perfecto estado. Lee la crónica completa.">
-    <meta name="twitter:image" content="https://fotografias-2.larazon.es/clipping/cmsimages01/2026/02/22/53BFDEB3-322E-4242-86A1-0F0B4E5F5CD0/98.jpg?crop=4188,2356,x0,y218&width=1900&height=1069&optimize=low&format=webply">
-
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Outfit:wght@300;400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
@@ -61,7 +56,6 @@
             color: var(--black);
         }
 
-        /* Notificación Urgente */
         .breaking-bar {
             background: var(--barca-red);
             color: white;
@@ -147,7 +141,6 @@
             margin: 15px 0;
         }
 
-        /* Bloque Partido Levante */
         .match-highlight {
             background: var(--black);
             color: var(--white);
@@ -189,7 +182,6 @@
             border-bottom: 3px solid var(--black);
         }
 
-        /* ESTILO BOTONES VOLVER */
         .back-container {
             padding: 40px;
             text-align: center;
@@ -197,8 +189,7 @@
             border-bottom: 3px solid var(--black);
             display: flex;
             justify-content: center;
-            gap: 20px; 
-            flex-wrap: wrap; 
+            gap: 20px; flex-wrap: wrap; 
         }
 
         .btn-back {
@@ -233,11 +224,94 @@
 
         .footer-logo { font-family: 'Archivo Black', sans-serif; font-size: 3rem; }
 
+        /* --- ESTILOS POPUP NEWSROOM --- */
+        .popup-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(15, 15, 15, 0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .popup-content {
+            background: var(--bg-yellow);
+            width: 90%;
+            max-width: 450px;
+            border: 4px solid var(--black);
+            position: relative;
+            text-align: center;
+            box-shadow: 15px 15px 0px var(--black);
+            animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes popIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .popup-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-bottom: 4px solid var(--black);
+        }
+
+        .popup-body { padding: 30px; }
+
+        .popup-body h3 {
+            font-size: 2.2rem;
+            line-height: 1;
+            margin-bottom: 10px;
+            font-family: 'Archivo Black', sans-serif;
+        }
+
+        .close-popup {
+            position: absolute;
+            top: -15px; right: -15px;
+            color: var(--white); font-size: 1.5rem;
+            cursor: pointer;
+            background: var(--black);
+            width: 40px; height: 40px;
+            border: 3px solid var(--white);
+            display: flex; justify-content: center; align-items: center;
+            z-index: 100;
+        }
+
+        .popup-input {
+            width: 100%;
+            padding: 15px;
+            border: 3px solid var(--black);
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            margin-bottom: 15px;
+            outline: none;
+        }
+
+        .popup-submit {
+            width: 100%;
+            padding: 15px;
+            background: var(--barca-red);
+            color: var(--white);
+            border: 3px solid var(--black);
+            font-family: 'Archivo Black', sans-serif;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .popup-submit:hover {
+            background: var(--accent-gold);
+            color: var(--black);
+            transform: translate(-3px, -3px);
+            box-shadow: 5px 5px 0px var(--black);
+        }
+
         @media (max-width: 900px) {
             .main-grid, .bottom-grid, .match-highlight { grid-template-columns: 1fr; flex-direction: column; }
             .news-box { border-right: none; border-bottom: 3px solid var(--black); }
             header, .news-box, .sidebar, .bottom-item, .match-highlight { padding: 30px 20px; }
-            .match-highlight { text-align: center; }
             .btn-back { width: 100%; }
         }
     </style>
@@ -249,7 +323,7 @@
     </div>
 
     <nav>
-        <a href="#" class="logo">LY.304</a>
+        <a href="https://desicuti.github.io/lamineyamalbrilla1.github.io/index.html" class="logo">LY.304</a>
         <div style="font-weight: 900;">TARDE | 22 FEB 2026</div>
     </nav>
 
@@ -301,18 +375,20 @@
         </div>
     </section>
 
-    <section class="bottom-grid">
-        <div class="bottom-item">
-            <span class="badge">IMAGEN PÚBLICA</span>
-            <h3>Estrella en Crecimiento</h3>
-            <p>La foto actual de Lamine es la de un líder deportivo que empieza a poner límites personales. Su madurez al gestionar los ataques a su reputación está impresionando a los patrocinadores.</p>
+    <div class="popup-overlay" id="newsletterPopup">
+        <div class="popup-content">
+            <span class="close-popup" onclick="closeNewsletter()">&times;</span>
+            <img src="https://www.fcbarcelona.com/fcbarcelona/photo/2025/05/27/9f68a451-d22b-48f0-a00d-9e816606b1c6/lamine-mans-obertes-gol.jpg" alt="Lamine Yamal" class="popup-image">
+            <div class="popup-body">
+                <h3>NEWSROOM <span style="color:var(--barca-red)">304</span></h3>
+                <p style="text-align:center; font-weight:700; margin-bottom:15px">¡Suscríbete para recibir las exclusivas de la tarde!</p>
+                <form id="newsletterForm" action="https://buttondown.com/api/emails/embed-subscribe/lamine_yamal_brilla" method="post">
+                    <input type="email" name="email" class="popup-input" placeholder="TU EMAIL AQUÍ..." required>
+                    <input type="submit" value="UNIRME AL NEWSROOM" class="popup-submit">
+                </form>
+            </div>
         </div>
-        <div class="bottom-item">
-            <span class="badge blue">PRÓXIMO OBJETIVO</span>
-            <h3>Mente en la Copa</h3>
-            <p>Tras cumplir ante el Levante, el foco se desplaza a las semifinales de Copa contra el Atleti. El plan de Flick es mantener la titularidad de Lamine para sentenciar la eliminatoria.</p>
-        </div>
-    </section>
+    </div>
 
     <section class="back-container">
         <a href="https://desicuti.github.io/lamineyamalbrilla1.github.io/noticiasgeneral220226.html" class="btn-back">
@@ -331,5 +407,27 @@
         </div>
     </footer>
 
+    <script>
+        const popup = document.getElementById('newsletterPopup');
+        const form = document.getElementById('newsletterForm');
+
+        function closeNewsletter() {
+            popup.style.display = 'none';
+        }
+
+        // Al enviar el formulario, marcamos como suscrito
+        form.onsubmit = function() {
+            localStorage.setItem('popupLamineVisto', 'true');
+        };
+
+        window.onload = function() {
+            // Solo mostramos si NO hay una marca en el navegador
+            if (!localStorage.getItem('popupLamineVisto')) {
+                setTimeout(function() {
+                    popup.style.display = 'flex';
+                }, 1500); 
+            }
+        };
+    </script>
 </body>
 </html>
