@@ -167,13 +167,51 @@
             font-size: 0.9rem;
             color: #777;
         }
+
+        /* Estilos para los nuevos botones */
+        .button-container {
+            display: flex;
+            gap: 20px;
+            margin-top: 40px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .btn-infografias {
+            background-color: var(--azul-barca);
+            color: white;
+            border: 2px solid var(--azul-barca);
+        }
+
+        .btn-inicio {
+            background-color: white;
+            color: var(--grana-barca);
+            border: 2px solid var(--grana-barca);
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
     </style>
 </head>
 <body>
 
     <div class="header">
         <h1>Lamine Yamal</h1>
-        <p>"No tuve la mejor infancia del mundo, pero mi madre hacía que solo viera lo bonito" [cite: 9, 18]</p>
+        <p>"No tuve la mejor infancia del mundo, pero mi madre hacía que solo viera lo bonito"</p>
     </div>
 
     <div class="grid-container">
@@ -187,7 +225,7 @@
                 <p>Hijo de Mounir Nasraoui, pintor de edificios de Larache (Marruecos), y Sheila Ebana, camarera de Bata (Guinea Ecuatorial).</p>
                 <p><strong>El origen de su nombre:</strong> "Lamine Yamal" fue elegido en honor a dos personas que ayudaron económicamente a sus padres antes de que él naciera.</p>
                 <div class="more-info" style="display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #ccc; color: var(--grana-barca); font-size: 0.9rem;">
-                    <em>Dato extra:</em> Sus padres se separaron cuando él tenía tres años, lo que marcó la logística de sus entrenamientos[cite: 5, 119, 345].
+                    <em>Dato extra:</em> Sus padres se separaron cuando él tenía tres años, lo que marcó la logística de sus entrenamientos.
                 </div>
             </div>
         </div>
@@ -198,10 +236,10 @@
             </div>
             <div class="card-body">
                 <span class="badge">Rocafonda, Mataró</span>
-                <p>Nació en Esplugues de Llobregat (13 de julio de 2007) [cite: 2, 226], pero creció en Rocafonda, un barrio obrero y humilde con mezcla de procedencias[cite: 7, 274].</p>
+                <p>Nació en Esplugues de Llobregat (13 de julio de 2007), pero creció en Rocafonda, un barrio obrero y humilde con mezcla de procedencias.</p>
                 <p><strong>Identidad:</strong> Celebra sus goles dibujando con los dedos el "304", los últimos dígitos del código postal (08304) de su barrio.</p>
                 <div class="more-info" style="display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #ccc; color: var(--azul-barca); font-size: 0.9rem;">
-                    <em>Dato extra:</em> Aprendió a jugar midiendo sus habilidades con chicos mayores en plazas y pistas improvisadas del barrio[cite: 8, 279].
+                    <em>Dato extra:</em> Aprendió a jugar midiendo sus habilidades con chicos mayores en plazas y pistas improvisadas del barrio.
                 </div>
             </div>
         </div>
@@ -212,10 +250,10 @@
             </div>
             <div class="card-body">
                 <span class="badge">Filtro Emocional</span>
-                <p>Su madre, Sheila, actuó como el "filtro" emocional de sus primeros años, logrando que disfrutara a pesar de las dificultades[cite: 9, 46].</p>
-                <p><strong>Los consejos de la abuela:</strong> Su abuela paterna, Fátima (73 años), le da dos reglas: "que no me ponga ropa negra y que sonría y cuide a mis padres"[cite: 44].</p>
+                <p>Su madre, Sheila, actuó como el "filtro" emocional de sus primeros años, logrando que disfrutara a pesar de las dificultades.</p>
+                <p><strong>Los consejos de la abuela:</strong> Su abuela paterna, Fátima (73 años), le da dos reglas: "que no me ponga ropa negra y que sonría y cuide a mis padres".</p>
                 <div class="more-info" style="display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #ccc; color: var(--grana-barca); font-size: 0.9rem;">
-                    <em>Dato extra:</em> Lamine ha calificado a su madre como "Mi primer gran amor"[cite: 43].
+                    <em>Dato extra:</em> Lamine ha calificado a su madre como "Mi primer gran amor".
                 </div>
             </div>
         </div>
@@ -229,7 +267,7 @@
             <div class="step-icon">👟</div>
             <div class="step-content">
                 <h4>Fútbol de Calle</h4>
-                <p>Sus inicios no fueron en entrenamientos formales, sino como un juego constante en la calle midiendo fuerzas con jóvenes mayores en Rocafonda[cite: 7, 8].</p>
+                <p>Sus inicios no fueron en entrenamientos formales, sino como un juego constante en la calle midiendo fuerzas con jóvenes mayores en Rocafonda.</p>
             </div>
         </div>
 
@@ -237,7 +275,7 @@
             <div class="step-icon">🛡️</div>
             <div class="step-content">
                 <h4>CF La Torreta (Aprox. 4 a 7 años)</h4>
-                <p>Su primer club modesto. Llegó allí por "necesidades familiares" (trayectos y rutinas). Sus padres hacían un esfuerzo colectivo para llevarlo a los entrenamientos[cite: 12, 13, 14, 120].</p>
+                <p>Su primer club modesto. Llegó allí por "necesidades familiares" (trayectos y rutinas). Sus padres hacían un esfuerzo colectivo para llevarlo a los entrenamientos.</p>
             </div>
         </div>
 
@@ -245,12 +283,17 @@
             <div class="step-icon">🌟</div>
             <div class="step-content">
                 <h4>Abril 2014: La Llegada al FC Barcelona</h4>
-                <p>Con solo 7 años, y tras atraer también el interés del Espanyol, la red de ojeadores del Barça lo incorpora a la Masía, dando fin a su etapa pre-Barça[cite: 15, 16, 17, 351, 647].</p>
+                <p>Con solo 7 años, y tras atraer también el interés del Espanyol, la red de ojeadores del Barça lo incorpora a la Masía, dando fin a su etapa pre-Barça.</p>
             </div>
         </div>
     </div>
 
     <p class="interaction-hint">👆 Haz clic en las tarjetas superiores para revelar datos ocultos sobre su infancia.</p>
+
+    <div class="button-container">
+        <a href="https://desicuti.github.io/lamineyamalbrilla1.github.io/infografias220226.html" class="btn btn-infografias">Volver a infografías</a>
+        <a href="https://desicuti.github.io/lamineyamalbrilla1.github.io/index.html" class="btn btn-inicio">Volver a Inicio</a>
+    </div>
 
 </body>
 </html>
