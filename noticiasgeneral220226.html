@@ -160,6 +160,73 @@
             font-size: 3rem;
             margin-bottom: 1rem;
         }
+
+        /* --- ESTILOS POPUP ADAPTADOS --- */
+        .popup-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.85);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .popup-content {
+            background: #1a1a2e; /* Color oscuro a juego con el fondo */
+            width: 90%;
+            max-width: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            border: 2px solid var(--dorado);
+            text-align: center;
+            box-shadow: 0 0 30px rgba(237, 187, 0, 0.2);
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .popup-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .popup-body { padding: 25px; }
+
+        .close-popup {
+            position: absolute;
+            top: 10px; right: 10px;
+            color: white; font-size: 1.5rem;
+            cursor: pointer;
+            background: rgba(0,0,0,0.5);
+            width: 30px; height: 30px;
+            border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            z-index: 10;
+        }
+
+        .popup-body input[type="submit"] {
+            background: linear-gradient(45deg, var(--azul-barca), var(--grana-barca));
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 30px;
+            width: 100%;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+        .popup-body input[type="submit"]:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(165, 0, 68, 0.4);
+        }
     </style>
 </head>
 <body>
@@ -197,7 +264,7 @@
             <div class="container-video">
                 <h2>Mis Vídeos de YouTube</h2>
                 <a href="https://youtu.be/zj430jOVDNc" target="_blank" class="video-thumbnail-container">
-                    <img src="https://i9.ytimg.com/vi/zj430jOVDNc/maxresdefault.jpg?v=69979a95&sqp=CIj07cwG&rs=AOn4CLDojJ_3YZPSPUJU1uMgt69ayt0lLQ" alt="Información Lamine Yamal">
+                    <img src="https://img.youtube.com/vi/zj430jOVDNc/maxresdefault.jpg" alt="Información Lamine Yamal">
                     <div class="play-overlay">
                         <i class="fas fa-play-circle"></i>
                     </div>
@@ -212,6 +279,32 @@
             &larr; Volver al inicio
         </a>
     </div>
+
+    <div class="popup-overlay" id="newsletterPopup">
+        <div class="popup-content">
+            <span class="close-popup" onclick="closeNewsletter()">&times;</span>
+            <img src="https://www.fcbarcelona.com/fcbarcelona/photo/2025/05/27/9f68a451-d22b-48f0-a00d-9e816606b1c6/lamine-mans-obertes-gol.jpg" alt="Lamine Yamal" class="popup-image">
+            <div class="popup-body">
+                <h3 style="color: var(--dorado); margin-bottom: 10px;">¡Únete a la familia 304!</h3>
+                <p style="font-size: 0.85rem; margin-bottom: 15px; color: #ccc;">No te pierdas ninguna noticia de Lamine.</p>
+                <form action="https://buttondown.com/api/emails/embed-subscribe/lamine_yamal_brilla" method="post">
+                    <input type="email" name="email" placeholder="Tu email..." required style="width: 100%; padding: 10px; border-radius: 20px; border: 1px solid #444; background: #000; color: white; margin-bottom: 15px; outline: none;">
+                    <input type="submit" value="¡Suscribirme ahora!">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function closeNewsletter() {
+            document.getElementById('newsletterPopup').style.display = 'none';
+        }
+        window.onload = function() {
+            setTimeout(function() {
+                document.getElementById('newsletterPopup').style.display = 'flex';
+            }, 1000); 
+        };
+    </script>
 
 </body>
 </html>
