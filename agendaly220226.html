@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía: La Agenda de Lamine Yamal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --granate-claro: #e57373; /* Rojo/Granate suave */
+            --azul-marino: #001F3F;
+            --negro: #1a1a1a;
+            --blanco-transparente: rgba(255, 255, 255, 0.6);
+        }
+
+        body {
+            background-color: var(--granate-claro);
+            color: var(--negro);
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header-info {
+            text-align: center;
+            max-width: 700px;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
+        .badge-ramadan {
+            background: var(--negro);
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Contenedor de la Línea de Tiempo */
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--negro);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+
+        /* Contenedores de los partidos */
+        .match-container {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        /* Círculos de la línea de tiempo */
+        .match-container::after {
+            content: '⚽';
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            right: -17px;
+            background-color: var(--granate-claro);
+            border: 2px solid var(--negro);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        .left { left: 0; }
+        .right { left: 50%; }
+
+        .right::after { left: -17px; }
+
+        /* Estilo de las tarjetas */
+        .content {
+            padding: 20px 30px;
+            background-color: var(--blanco-transparente);
+            position: relative;
+            border-radius: 15px;
+            border: 2px solid var(--negro);
+            transition: 0.3s;
+            box-shadow: 10px 10px 0px var(--negro);
+        }
+
+        .content:hover {
+            transform: translateY(-5px);
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 15px 15px 0px var(--negro);
+        }
+
+        .content h2 {
+            margin-top: 0;
+            font-size: 1.4rem;
+        }
+
+        .date-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .hour-tag {
+            background: var(--negro);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        /* Botón Final */
+        .btn-container {
+            margin-top: 60px;
+            margin-bottom: 40px;
+        }
+
+        .btn-volver {
+            background-color: var(--azul-marino);
+            color: white;
+            padding: 18px 40px;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            border: 3px solid var(--negro);
+            box-shadow: 6px 6px 0px var(--negro);
+        }
+
+        .btn-volver:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 10px 10px 0px var(--negro);
+            background-color: #002d5c;
+        }
+
+        /* Responsive */
+        @media screen and (max-width: 600px) {
+            .timeline::after { left: 31px; }
+            .match-container {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            .match-container::after {
+                left: 15px;
+            }
+            .right { left: 0%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-info">
+        <div class="badge-ramadan"><i class="fas fa-moon"></i> TEMPORADA DE RAMADÁN</div>
+        <h1>LA AGENDA DE LAMINE</h1>
+        <p>Análisis de los 4 compromisos clave a las 16:15h. Un bloque decisivo para LaLiga y un reto físico excepcional.</p>
+    </div>
+
+    <div class="timeline">
+        
+        <div class="match-container left">
+            <div class="content">
+                <div class="date-box">
+                    <i class="far fa-calendar-alt"></i> 22 Feb 2026 <span class="hour-tag">16:15</span>
+                </div>
+                <h2>FC Barcelona vs Levante</h2>
+                <p><strong>Lugar:</strong> Spotify Camp Nou</p>
+                <p>Inicio del ciclo vespertino. Protocolo de hidratación activado por el staff médico para gestionar el ayuno.</p>
+            </div>
+        </div>
+
+        <div class="match-container right">
+            <div class="content">
+                <div class="date-box">
+                    <i class="far fa-calendar-alt"></i> 28 Feb 2026 <span class="hour-tag">16:15</span>
+                </div>
+                <h2>FC Barcelona vs Villarreal</h2>
+                <p><strong>Lugar:</strong> Spotify Camp Nou</p>
+                <p>Dato histórico: No se repetía esta secuencia de horarios desde hace 12 años. La resistencia de Lamine a prueba.</p>
+            </div>
+        </div>
+
+        <div class="match-container left">
+            <div class="content">
+                <div class="date-box">
+                    <i class="far fa-calendar-alt"></i> 08 Mar 2026 <span class="hour-tag">16:15</span>
+                </div>
+                <h2>Athletic Club vs FC Barcelona</h2>
+                <p><strong>Lugar:</strong> San Mamés</p>
+                <p>El partido más físico del bloque. El ambiente de Bilbao y el esfuerzo acumulado marcan este domingo.</p>
+            </div>
+        </div>
+
+        <div class="match-container right">
+            <div class="content">
+                <div class="date-box">
+                    <i class="far fa-calendar-alt"></i> 15 Mar 2026 <span class="hour-tag">16:15</span>
+                </div>
+                <h2>FC Barcelona vs Sevilla FC</h2>
+                <p><strong>Lugar:</strong> Spotify Camp Nou</p>
+                <p>Cierre del bloque crítico. Lamine compagina su fe con la lucha por el título de liga en este cuarto duelo seguido.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="btn-container">
+        <a href="https://desicuti.github.io/lamineyamalbrilla1.github.io/index.html" class="btn-volver">
+            <i class="fas fa-arrow-left"></i> Volver al inicio
+        </a>
+    </div>
+
+</body>
+</html>
