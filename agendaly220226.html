@@ -7,10 +7,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --granate-claro: #e57373; /* Rojo/Granate suave */
+            --granate-claro: #e57373; 
             --azul-marino: #001F3F;
             --negro: #1a1a1a;
-            --blanco-transparente: rgba(255, 255, 255, 0.6);
+            --blanco-transparente: rgba(255, 255, 255, 0.9); /* Un poco más opaco para leer mejor sobre fotos */
         }
 
         body {
@@ -31,7 +31,7 @@
         }
 
         h1 {
-            font-size: 3rem;
+            font-size: clamp(2rem, 5vw, 3rem); /* Tamaño fluido para TV/Móvil */
             margin-bottom: 10px;
             text-transform: uppercase;
             letter-spacing: -1px;
@@ -54,7 +54,6 @@
             100% { transform: scale(1); }
         }
 
-        /* Contenedor de la Línea de Tiempo */
         .timeline {
             position: relative;
             max-width: 900px;
@@ -73,7 +72,6 @@
             margin-left: -2px;
         }
 
-        /* Contenedores de los partidos */
         .match-container {
             padding: 10px 40px;
             position: relative;
@@ -82,7 +80,6 @@
             box-sizing: border-box;
         }
 
-        /* Círculos de la línea de tiempo */
         .match-container::after {
             content: '⚽';
             position: absolute;
@@ -91,7 +88,7 @@
             right: -17px;
             background-color: var(--granate-claro);
             border: 2px solid var(--negro);
-            top: 15px;
+            top: 25px;
             border-radius: 50%;
             z-index: 1;
             display: flex;
@@ -102,29 +99,40 @@
 
         .left { left: 0; }
         .right { left: 50%; }
-
         .right::after { left: -17px; }
 
-        /* Estilo de las tarjetas */
+        /* Estilo de las tarjetas con imagen */
         .content {
-            padding: 20px 30px;
             background-color: var(--blanco-transparente);
             position: relative;
             border-radius: 15px;
             border: 2px solid var(--negro);
             transition: 0.3s;
             box-shadow: 10px 10px 0px var(--negro);
+            overflow: hidden; /* Corta la imagen según el radio del borde */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .match-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover; /* Ajusta la imagen sin estirarla */
+            border-bottom: 2px solid var(--negro);
+        }
+
+        .card-text {
+            padding: 20px;
         }
 
         .content:hover {
             transform: translateY(-5px);
-            background-color: rgba(255, 255, 255, 0.9);
             box-shadow: 15px 15px 0px var(--negro);
         }
 
         .content h2 {
             margin-top: 0;
-            font-size: 1.4rem;
+            font-size: 1.3rem;
         }
 
         .date-box {
@@ -143,7 +151,6 @@
             font-size: 0.9rem;
         }
 
-        /* Botón Final */
         .btn-container {
             margin-top: 60px;
             margin-bottom: 40px;
@@ -166,21 +173,25 @@
         .btn-volver:hover {
             transform: translate(-2px, -2px);
             box-shadow: 10px 10px 0px var(--negro);
-            background-color: #002d5c;
         }
 
-        /* Responsive */
-        @media screen and (max-width: 600px) {
+        /* Ajustes para Móvil y Tablet */
+        @media screen and (max-width: 768px) {
             .timeline::after { left: 31px; }
             .match-container {
                 width: 100%;
                 padding-left: 70px;
                 padding-right: 25px;
             }
-            .match-container::after {
-                left: 15px;
-            }
+            .match-container::after { left: 15px; }
             .right { left: 0%; }
+            .match-image { height: 150px; }
+        }
+        
+        /* Ajuste para TV (Pantallas grandes) */
+        @media screen and (min-width: 1400px) {
+            .timeline { max-width: 1100px; }
+            .match-image { height: 250px; }
         }
     </style>
 </head>
@@ -189,52 +200,50 @@
     <div class="header-info">
         <div class="badge-ramadan"><i class="fas fa-moon"></i> TEMPORADA DE RAMADÁN</div>
         <h1>LA AGENDA DE LAMINE</h1>
-        <p>Análisis de los 4 compromisos clave a las 16:15h. Un bloque decisivo para LaLiga y un reto físico excepcional.</p>
+        <p>Análisis de los 3 compromisos clave a las 16:15h. Un bloque decisivo para LaLiga y un reto físico excepcional.</p>
     </div>
 
     <div class="timeline">
         
         <div class="match-container left">
             <div class="content">
-                <div class="date-box">
-                    <i class="far fa-calendar-alt"></i> 22 Feb 2026 <span class="hour-tag">16:15</span>
+                <img src="https://images.ecestaticos.com/8sd-7p-WdYd1HqJFGyquztgMxdM=/0x0:2272x1515/1200x900/filters:fill(white):format(jpg)/f.elconfidencial.com%2Foriginal%2F73e%2Fe99%2Ff07%2F73ee99f07057d9c133f3f17458b363bb.jpg" class="match-image" alt="Barcelona vs Villarreal">
+                <div class="card-text">
+                    <div class="date-box">
+                        <i class="far fa-calendar-alt"></i> 28 Feb 2026 <span class="hour-tag">16:15</span>
+                    </div>
+                    <h2>FC Barcelona vs Villarreal</h2>
+                    <p><strong>Lugar:</strong> Spotify Camp Nou</p>
+                    <p>Dato histórico: No se repetía esta secuencia de horarios desde hace 12 años. La resistencia de Lamine a prueba.</p>
                 </div>
-                <h2>FC Barcelona vs Levante</h2>
-                <p><strong>Lugar:</strong> Spotify Camp Nou</p>
-                <p>Inicio del ciclo vespertino. Protocolo de hidratación activado por el staff médico para gestionar el ayuno.</p>
             </div>
         </div>
 
         <div class="match-container right">
             <div class="content">
-                <div class="date-box">
-                    <i class="far fa-calendar-alt"></i> 28 Feb 2026 <span class="hour-tag">16:15</span>
+                <img src="https://assets-us-01.kc-usercontent.com/31dbcbc6-da4c-0033-328a-d7621d0fa726/c2ae2915-caed-4647-95c8-ec5b647a9ff7/2025-11-09T210026Z_700312376_UP1ELB91MCPGJ_RTRMADP_3_SOCCER-SPAIN-CEL-BAR.JPG?ver=03-06-2025?w=3840&q=75" class="match-image" alt="Athletic vs Barcelona">
+                <div class="card-text">
+                    <div class="date-box">
+                        <i class="far fa-calendar-alt"></i> 08 Mar 2026 <span class="hour-tag">16:15</span>
+                    </div>
+                    <h2>Athletic Club vs FC Barcelona</h2>
+                    <p><strong>Lugar:</strong> San Mamés</p>
+                    <p>El partido más físico del bloque. El ambiente de Bilbao y el esfuerzo acumulado marcan este domingo.</p>
                 </div>
-                <h2>FC Barcelona vs Villarreal</h2>
-                <p><strong>Lugar:</strong> Spotify Camp Nou</p>
-                <p>Dato histórico: No se repetía esta secuencia de horarios desde hace 12 años. La resistencia de Lamine a prueba.</p>
             </div>
         </div>
 
         <div class="match-container left">
             <div class="content">
-                <div class="date-box">
-                    <i class="far fa-calendar-alt"></i> 08 Mar 2026 <span class="hour-tag">16:15</span>
+                <img src="https://www.fcbarcelona.com/photo-resources/2024/10/20/0c047549-06f8-4271-9283-8adeb2543666/2024-10-20_FCBvsSEVILLA_34.JPG?width=1200&height=750" class="match-image" alt="Barcelona vs Sevilla">
+                <div class="card-text">
+                    <div class="date-box">
+                        <i class="far fa-calendar-alt"></i> 15 Mar 2026 <span class="hour-tag">16:15</span>
+                    </div>
+                    <h2>FC Barcelona vs Sevilla FC</h2>
+                    <p><strong>Lugar:</strong> Spotify Camp Nou</p>
+                    <p>Cierre del bloque crítico. Lamine compagina su fe con la lucha por el título de liga en este cuarto duelo seguido.</p>
                 </div>
-                <h2>Athletic Club vs FC Barcelona</h2>
-                <p><strong>Lugar:</strong> San Mamés</p>
-                <p>El partido más físico del bloque. El ambiente de Bilbao y el esfuerzo acumulado marcan este domingo.</p>
-            </div>
-        </div>
-
-        <div class="match-container right">
-            <div class="content">
-                <div class="date-box">
-                    <i class="far fa-calendar-alt"></i> 15 Mar 2026 <span class="hour-tag">16:15</span>
-                </div>
-                <h2>FC Barcelona vs Sevilla FC</h2>
-                <p><strong>Lugar:</strong> Spotify Camp Nou</p>
-                <p>Cierre del bloque crítico. Lamine compagina su fe con la lucha por el título de liga en este cuarto duelo seguido.</p>
             </div>
         </div>
 
