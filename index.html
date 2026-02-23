@@ -31,7 +31,7 @@
             scroll-behavior: smooth;
         }
 
-        /* Hero Section - RESTAURADA */
+        /* Hero Section */
         header {
             height: 80vh;
             background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)), 
@@ -202,45 +202,7 @@
         .btn-agenda { background-color: var(--barca-red); color: white; }
         .btn-info { background-color: var(--gold); color: var(--dark); }
 
-        .newsletter-section {
-            background: #111;
-            padding: 60px 20px;
-            text-align: center;
-            border-top: 2px solid var(--barca-red);
-        }
-
-        .embeddable-buttondown-form {
-            max-width: 500px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            align-items: center;
-        }
-
-        .embeddable-buttondown-form input[type="email"] {
-            width: 100%;
-            padding: 12px 20px;
-            border-radius: 30px;
-            border: 1px solid #333;
-            background: #1a1a1a;
-            color: white;
-            font-size: 1rem;
-        }
-
-        .embeddable-buttondown-form input[type="submit"] {
-            padding: 12px 40px;
-            background: var(--barca-red);
-            color: white;
-            border: none;
-            border-radius: 30px;
-            cursor: pointer;
-            font-weight: bold;
-            text-transform: uppercase;
-            transition: 0.3s;
-        }
-
-        /* --- POPUP RESTAURADO --- */
+        /* --- POPUP --- */
         .popup-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -285,6 +247,37 @@
             width: 35px; height: 35px;
             border-radius: 50%;
             display: flex; justify-content: center; align-items: center;
+        }
+
+        .embeddable-buttondown-form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .embeddable-buttondown-form input[type="email"] {
+            width: 100%;
+            padding: 12px 20px;
+            border-radius: 30px;
+            border: 1px solid #333;
+            background: #1a1a1a;
+            color: white;
+            font-size: 1rem;
+        }
+
+        .embeddable-buttondown-form input[type="submit"] {
+            padding: 12px 40px;
+            background: var(--barca-red);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: 0.3s;
         }
 
         footer {
@@ -359,6 +352,7 @@
             <a href="https://desicuti.github.io/lamineyamalbrilla1.github.io/noticiasgeneral220226.html" class="btn btn-news"><i class="fas fa-newspaper"></i> Noticias</a>
             <a href="https://desicuti.github.io/lamineyamalbrilla1.github.io/agendaly220226.html" class="btn btn-agenda"><i class="fas fa-calendar-alt"></i> Agenda</a>
             <a href="https://desicuti.github.io/lamineyamalbrilla1.github.io/partidos2526220226.html" class="btn btn-matches"><i class="fas fa-futbol"></i> Partidos</a>
+            <a href="https://desicuti.github.io/lamineyamalbrilla1.github.io/infografias220226.html" class="btn btn-info"><i class="fas fa-chart-pie"></i> Infografías</a>
             <a href="https://desicuti.github.io/lamineyamalbrilla1.github.io/juegos220226.html" class="btn btn-agenda"><i class="fas fa-gamepad"></i> Juegos</a>
         </div>
     </div>
@@ -370,9 +364,9 @@
             <div class="popup-body">
                 <h3 style="color: var(--gold); margin-bottom: 10px;">¡Únete a la familia 304!</h3>
                 <p style="font-size: 0.9rem; margin-bottom: 20px;">Recibe noticias exclusivas de Lamine antes que nadie.</p>
-                <form action="https://buttondown.com/api/emails/embed-subscribe/lamine_yamal_brilla" method="post" class="embeddable-buttondown-form">
-                  <input type="email" name="email" placeholder="Tu mejor email..." required style="width: 100%; padding: 12px; border-radius: 30px; border: 1px solid #333; background: #000; color: white; margin-bottom: 10px;" />
-                  <input type="submit" value="¡Quiero suscribirme!" style="width: 100%;" />
+                <form id="newsletterForm" action="https://buttondown.com/api/emails/embed-subscribe/lamine_yamal_brilla" method="post" class="embeddable-buttondown-form">
+                  <input type="email" name="email" placeholder="Tu mejor email..." required />
+                  <input type="submit" value="¡Quiero suscribirme!" />
                 </form>
             </div>
         </div>
@@ -383,13 +377,25 @@
     </footer>
 
     <script>
+        const popup = document.getElementById('newsletterPopup');
+        const form = document.getElementById('newsletterForm');
+
         function closeNewsletter() {
-            document.getElementById('newsletterPopup').style.display = 'none';
+            popup.style.display = 'none';
+            // También marcamos como visto si lo cierran, para no molestar
+            localStorage.setItem('popupLamineVisto', 'true');
         }
+
+        form.onsubmit = function() {
+            localStorage.setItem('popupLamineVisto', 'true');
+        };
+
         window.onload = function() {
-            setTimeout(function() {
-                document.getElementById('newsletterPopup').style.display = 'flex';
-            }, 1000); // 1 segundo
+            if (!localStorage.getItem('popupLamineVisto')) {
+                setTimeout(function() {
+                    popup.style.display = 'flex';
+                }, 1500); 
+            }
         };
     </script>
 
