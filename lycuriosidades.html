@@ -113,7 +113,6 @@
             border-top: 1px solid #eee;
         }
 
-        /* Estilos para los nuevos botones */
         .button-group {
             display: flex;
             justify-content: center;
@@ -156,8 +155,95 @@
             transform: scale(1.05);
         }
 
-        .card:active {
-            transform: scale(0.98);
+        /* --- ESTILOS DEL POPUP --- */
+        .popup-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            backdrop-filter: blur(4px);
+        }
+
+        .popup-content {
+            background: white;
+            color: #333;
+            width: 90%;
+            max-width: 450px;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            animation: popIn 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+
+        @keyframes popIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .popup-header-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .popup-body {
+            padding: 25px 30px 30px 30px;
+            text-align: center;
+        }
+
+        .popup-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--barca-red);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .popup-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .popup-input {
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .popup-submit {
+            background: var(--barca-blue);
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+        .popup-submit:hover {
+            background: var(--barca-red);
+        }
+
+        .close-popup {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.8rem;
+            color: white;
+            cursor: pointer;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+            z-index: 10;
         }
     </style>
 </head>
@@ -230,6 +316,43 @@
         <a href="https://desicuti.github.io/lamineyamalbrilla1.github.io/index.html" class="nav-button btn-inicio">Volver a Inicio</a>
     </div>
 </div>
+
+<div class="popup-overlay" id="infoPopup">
+    <div class="popup-content">
+        <span class="close-popup" onclick="closePopup()">&times;</span>
+        <img src="https://www.fcbarcelona.com/fcbarcelona/photo/2025/05/27/9f68a451-d22b-48f0-a00d-9e816606b1c6/lamine-mans-obertes-gol.jpg" alt="Lamine Yamal" class="popup-header-img">
+        <div class="popup-body">
+            <div class="popup-title">¿Quieres más Lamine?</div>
+            <p style="color: #666; font-size: 0.95rem;">Suscríbete para recibir curiosidades semanales y fotos exclusivas del heredero del 10.</p>
+            <form id="popupForm" action="https://buttondown.com/api/emails/embed-subscribe/lamine_yamal_brilla" method="post" class="popup-form">
+                <input type="email" name="email" class="popup-input" placeholder="Tu email aquí..." required />
+                <button type="submit" class="popup-submit">¡Suscribirme ahora!</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    const popup = document.getElementById('infoPopup');
+
+    function closePopup() {
+        popup.style.display = 'none';
+        localStorage.setItem('popupLamineVisto', 'true');
+    }
+
+    document.getElementById('popupForm').onsubmit = function() {
+        localStorage.setItem('popupLamineVisto', 'true');
+    };
+
+    window.onload = function() {
+        // Retardo de 1 segundo (1000ms)
+        if (!localStorage.getItem('popupLamineVisto')) {
+            setTimeout(function() {
+                popup.style.display = 'flex';
+            }, 1000);
+        }
+    };
+</script>
 
 </body>
 </html>
