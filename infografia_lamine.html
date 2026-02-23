@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Infografía: La Infancia de Lamine Yamal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
 
@@ -168,7 +169,6 @@
             color: #777;
         }
 
-        /* Estilos para los nuevos botones */
         .button-container {
             display: flex;
             gap: 20px;
@@ -205,6 +205,97 @@
             transform: scale(1.05);
             box-shadow: 0 6px 12px rgba(0,0,0,0.2);
         }
+
+        /* --- ESTILOS DEL POPUP --- */
+        .popup-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            backdrop-filter: blur(4px);
+        }
+
+        .popup-content {
+            background: white;
+            color: #333;
+            width: 90%;
+            max-width: 450px;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            animation: popIn 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+
+        @keyframes popIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .popup-header-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .popup-body {
+            padding: 25px 30px 30px 30px;
+            text-align: center;
+        }
+
+        .popup-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--grana-barca);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .popup-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .popup-input {
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .popup-submit {
+            background: var(--azul-barca);
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+        .popup-submit:hover {
+            background: var(--grana-barca);
+        }
+
+        .close-popup {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.8rem;
+            color: white;
+            cursor: pointer;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+            z-index: 10;
+        }
     </style>
 </head>
 <body>
@@ -215,11 +306,8 @@
     </div>
 
     <div class="grid-container">
-        
         <div class="card" onclick="this.querySelector('.more-info').style.display = this.querySelector('.more-info').style.display === 'block' ? 'none' : 'block';">
-            <div class="card-header">
-                🌍 Raíces y Familia
-            </div>
+            <div class="card-header">🌍 Raíces y Familia</div>
             <div class="card-body">
                 <span class="badge">Orígenes Humildes</span>
                 <p>Hijo de Mounir Nasraoui, pintor de edificios de Larache (Marruecos), y Sheila Ebana, camarera de Bata (Guinea Ecuatorial).</p>
@@ -231,9 +319,7 @@
         </div>
 
         <div class="card" onclick="this.querySelector('.more-info').style.display = this.querySelector('.more-info').style.display === 'block' ? 'none' : 'block';">
-            <div class="card-header grana">
-                🏘️ El Barrio 304
-            </div>
+            <div class="card-header grana">🏘️ El Barrio 304</div>
             <div class="card-body">
                 <span class="badge">Rocafonda, Mataró</span>
                 <p>Nació en Esplugues de Llobregat (13 de julio de 2007), pero creció en Rocafonda, un barrio obrero y humilde con mezcla de procedencias.</p>
@@ -245,9 +331,7 @@
         </div>
 
         <div class="card" onclick="this.querySelector('.more-info').style.display = this.querySelector('.more-info').style.display === 'block' ? 'none' : 'block';">
-            <div class="card-header">
-                ❤️ Pilares Vitales
-            </div>
+            <div class="card-header">❤️ Pilares Vitales</div>
             <div class="card-body">
                 <span class="badge">Filtro Emocional</span>
                 <p>Su madre, Sheila, actuó como el "filtro" emocional de sus primeros años, logrando que disfrutara a pesar de las dificultades.</p>
@@ -257,12 +341,10 @@
                 </div>
             </div>
         </div>
-
     </div>
 
     <div class="timeline">
         <h2>⚽ Los Primeros Toques (Antes de la Fama)</h2>
-        
         <div class="step">
             <div class="step-icon">👟</div>
             <div class="step-content">
@@ -270,7 +352,6 @@
                 <p>Sus inicios no fueron en entrenamientos formales, sino como un juego constante en la calle midiendo fuerzas con jóvenes mayores en Rocafonda.</p>
             </div>
         </div>
-
         <div class="step">
             <div class="step-icon">🛡️</div>
             <div class="step-content">
@@ -278,7 +359,6 @@
                 <p>Su primer club modesto. Llegó allí por "necesidades familiares" (trayectos y rutinas). Sus padres hacían un esfuerzo colectivo para llevarlo a los entrenamientos.</p>
             </div>
         </div>
-
         <div class="step">
             <div class="step-icon">🌟</div>
             <div class="step-content">
@@ -295,5 +375,41 @@
         <a href="https://desicuti.github.io/lamineyamalbrilla1.github.io/index.html" class="btn btn-inicio">Volver a Inicio</a>
     </div>
 
+    <div class="popup-overlay" id="infoPopup">
+        <div class="popup-content">
+            <span class="close-popup" onclick="closePopup()">&times;</span>
+            <img src="https://www.fcbarcelona.com/fcbarcelona/photo/2025/05/27/9f68a451-d22b-48f0-a00d-9e816606b1c6/lamine-mans-obertes-gol.jpg" alt="Lamine Yamal" class="popup-header-img">
+            <div class="popup-body">
+                <div class="popup-title">¿Te gusta esta historia?</div>
+                <p style="color: #666; font-size: 0.95rem;">Suscríbete para recibir más infografías exclusivas sobre el futuro del fútbol directamente en tu correo.</p>
+                <form id="popupForm" action="https://buttondown.com/api/emails/embed-subscribe/lamine_yamal_brilla" method="post" class="popup-form">
+                    <input type="email" name="email" class="popup-input" placeholder="Tu mejor email..." required />
+                    <button type="submit" class="popup-submit">¡Quiero más contenido!</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const popup = document.getElementById('infoPopup');
+
+        function closePopup() {
+            popup.style.display = 'none';
+            localStorage.setItem('popupLamineVisto', 'true');
+        }
+
+        document.getElementById('popupForm').onsubmit = function() {
+            localStorage.setItem('popupLamineVisto', 'true');
+        };
+
+        window.onload = function() {
+            // Popup en 1 segundo (1000ms)
+            if (!localStorage.getItem('popupLamineVisto')) {
+                setTimeout(function() {
+                    popup.style.display = 'flex';
+                }, 1000);
+            }
+        };
+    </script>
 </body>
 </html>
