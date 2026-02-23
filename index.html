@@ -124,6 +124,28 @@
             margin-bottom: 20px;
         }
 
+        /* --- Estilos Nueva Sección Última Hora --- */
+        .breaking-news-section {
+            text-align: center;
+            padding: 40px 20px;
+            background: #000;
+        }
+
+        .breaking-news-img {
+            max-width: 800px;
+            width: 100%;
+            border-radius: 15px;
+            border: 2px solid var(--gold);
+            margin: 20px auto;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .breaking-news-img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 25px rgba(237, 187, 0, 0.4);
+        }
+
         .video-section {
             background: #000;
             padding: 60px 20px;
@@ -324,6 +346,20 @@
         </div>
     </div>
 
+    <section class="breaking-news-section">
+        <div class="container">
+            <h2>¡Última hora!</h2>
+            <a href="https://desicuti.github.io/lamineyamalbrilla1.github.io/noticias220226noche.html">
+                <img src="https://raw.githubusercontent.com/desicuti/lamineyamalbrilla1.github.io/refs/heads/main/image_Pippit_202602230138%20(1).png" alt="Noticia de última hora Lamine Yamal" class="breaking-news-img">
+            </a>
+            <div class="btn-container">
+                <a href="https://desicuti.github.io/lamineyamalbrilla1.github.io/noticias220226noche.html" class="btn btn-info">
+                    <i class="fas fa-bolt"></i> Noticias de plena actualidad sobre Lamine Yamal ¡No te las pierdas!
+                </a>
+            </div>
+        </div>
+    </section>
+
     <section class="video-section" id="videos">
         <div class="container">
             <h2>Mis Vídeos de YouTube</h2>
@@ -382,7 +418,6 @@
 
         function closeNewsletter() {
             popup.style.display = 'none';
-            // También marcamos como visto si lo cierran, para no molestar
             localStorage.setItem('popupLamineVisto', 'true');
         }
 
