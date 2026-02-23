@@ -6,7 +6,7 @@
     <title>Partidos de Lamine Yamal 25/26</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Fondo de campo de fútbol con franjas realistas */
+        /* Fondo de campo de fútbol */
         body {
             margin: 0;
             padding: 0;
@@ -31,7 +31,6 @@
             padding: 40px 20px;
         }
 
-        /* Título Principal Ultra Destacado */
         .main-title {
             font-size: 4.5rem;
             text-transform: uppercase;
@@ -42,7 +41,6 @@
             line-height: 1;
         }
 
-        /* Botón Agenda (Nuevo) */
         .btn-agenda {
             display: inline-block;
             background-color: white;
@@ -58,15 +56,8 @@
             font-family: 'Segoe UI', sans-serif;
         }
 
-        .btn-agenda:hover {
-            transform: scale(1.05);
-            background-color: #f0f0f0;
-        }
-
-        /* Título del Partido */
         .match-score {
             font-size: 2.2rem;
-            font-weight: normal;
             font-family: 'Segoe UI', sans-serif;
             margin-bottom: 40px;
             background-color: rgba(0, 0, 0, 0.3);
@@ -94,11 +85,9 @@
             height: auto;
             border-radius: 12px;
             border: 5px solid white;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
             margin-bottom: 25px;
         }
 
-        /* Botón de análisis */
         .btn-analysis {
             display: inline-block;
             background-color: white;
@@ -108,92 +97,106 @@
             font-weight: 900;
             text-decoration: none;
             border-radius: 50px;
-            transition: all 0.3s ease;
             box-shadow: 0 6px 0px #c0c0c0;
             text-transform: uppercase;
         }
 
-        .btn-analysis:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-        }
-
-        /* Estilos Nueva Sección Video */
+        /* --- SECCIÓN VIDEO CORREGIDA --- */
         .video-section {
             margin-top: 40px;
             width: 100%;
-        }
-
-        .video-section h2 {
-            font-family: 'Segoe UI', sans-serif;
-            font-size: 1.8rem;
-            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .video-thumbnail-container {
             position: relative;
-            display: inline-block;
+            display: block;
             width: 100%;
             max-width: 600px;
+            aspect-ratio: 16 / 9; /* Esto evita que la imagen se corte */
             border-radius: 15px;
             overflow: hidden;
+            border: 4px solid white;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             transition: transform 0.3s ease;
         }
 
-        .video-thumbnail-container:hover {
-            transform: scale(1.02);
-        }
-
         .video-thumbnail-container img {
             width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ajusta la imagen al contenedor perfectamente */
             display: block;
         }
 
         .play-overlay {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            top: 0; left: 0; width: 100%; height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             font-size: 4rem;
             color: white;
+            background: rgba(0,0,0,0.1);
             text-shadow: 0 0 20px rgba(0,0,0,0.8);
-            opacity: 0.9;
+            transition: 0.3s;
         }
 
-        .video-caption {
-            margin-top: 15px;
-            font-family: 'Segoe UI', sans-serif;
-            font-style: italic;
-            opacity: 0.9;
+        .video-thumbnail-container:hover {
+            transform: scale(1.03);
         }
 
-        /* Botón Volver al Inicio */
         .btn-back {
             display: inline-block;
             margin-top: 40px;
-            margin-bottom: 40px;
             color: white;
             text-decoration: none;
             font-family: 'Segoe UI', sans-serif;
-            font-weight: bold;
-            font-size: 1.1rem;
             padding: 10px 20px;
             border: 2px solid white;
             border-radius: 5px;
-            transition: all 0.3s;
         }
 
-        .btn-back:hover {
-            background-color: white;
-            color: #2e7d32;
+        /* --- POPUP MATCH DAY --- */
+        .popup-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 20, 0, 0.85);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
         }
 
-        /* Responsive */
+        .popup-content {
+            background: white;
+            color: #1b5e20;
+            width: 90%;
+            max-width: 450px;
+            border-radius: 25px;
+            overflow: hidden;
+            position: relative;
+            border: 6px solid white;
+            animation: matchPop 0.5s ease-out;
+        }
+
+        @keyframes matchPop {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .popup-header-img { width: 100%; height: 200px; object-fit: cover; }
+        .popup-body { padding: 25px; font-family: 'Segoe UI', sans-serif; }
+        .popup-title { font-family: 'Arial Black', sans-serif; font-size: 1.6rem; margin-bottom: 10px; }
+        .close-popup { position: absolute; top: 15px; right: 15px; background: white; color: #1b5e20; width: 30px; height: 30px; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; font-weight: bold; z-index: 10; }
+        .popup-form { display: flex; flex-direction: column; gap: 10px; }
+        .popup-form input[type="email"] { padding: 12px; border: 2px solid #2e7d32; border-radius: 8px; }
+        .popup-form input[type="submit"] { background: #2e7d32; color: white; padding: 12px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; text-transform: uppercase; }
+
         @media (max-width: 600px) {
             .main-title { font-size: 2.5rem; }
             .match-score { font-size: 1.3rem; }
-            .play-overlay { font-size: 3rem; }
         }
     </style>
 </head>
@@ -203,34 +206,26 @@
         <h1 class="main-title">Partidos de Lamine Yamal 25/26</h1>
         
         <a href="https://desicuti.github.io/lamineyamalbrilla1.github.io/agendaly220226.html" class="btn-agenda">
-            Agenda de Lamine Yamal
+            <i class="fas fa-calendar-alt"></i> Agenda de Lamine Yamal
         </a>
 
         <h2 class="match-score">FC Barcelona 3 - 0 Levante (22/02/26)</h2>
 
         <div class="match-card">
             <img src="https://www.fcbarcelona.com/fcbarcelona/photo/2026/02/22/7d6165b5-9edb-46a1-b471-99283fdfdca8/2026-02-22_FCBvsLEVANTEUD_143.JPG" 
-                 alt="Lamine Yamal vs Levante" 
-                 class="match-image">
-
+                 alt="Lamine Yamal vs Levante" class="match-image">
             <br>
-
             <a href="https://desicuti.github.io/lamineyamalbrilla1.github.io/partidolyvslevante220226.html" class="btn-analysis">
-                Análisis: Lamine Yamal vs Levante - Pulsa aquí
+                Análisis: Lamine Yamal vs Levante
             </a>
         </div>
 
-        <section class="video-section" id="videos">
-            <div class="container-video">
-                <h2>Último análisis del partido de Lamine Yamal</h2>
-                <a href="https://youtu.be/3qBmaYVyji8" target="_blank" class="video-thumbnail-container">
-                    <img src="https://i9.ytimg.com/vi/3qBmaYVyji8/maxresdefault.jpg?v=697eab02&sqp=CLT27cwG&rs=AOn4CLDjidILIVyiFVCxypFbZHd0zvdNpQ" alt="Análisis Lamine Yamal">
-                    <div class="play-overlay">
-                        <i class="fas fa-play-circle"></i>
-                    </div>
-                </a>
-                <p class="video-caption">Haz clic para ver mi historia en YouTube</p>
-            </div>
+        <section class="video-section">
+            <h2>Último análisis en vídeo</h2>
+            <a href="https://youtu.be/3qBmaYVyji8" target="_blank" class="video-thumbnail-container">
+                <img src="https://i.ytimg.com/vi/3qBmaYVyji8/maxresdefault.jpg" alt="Análisis Lamine">
+                <div class="play-overlay"><i class="fas fa-play-circle"></i></div>
+            </a>
         </section>
 
         <a href="https://desicuti.github.io/lamineyamalbrilla1.github.io/index.html" class="btn-back">
@@ -238,5 +233,35 @@
         </a>
     </div>
 
+    <div class="popup-overlay" id="matchPopup">
+        <div class="popup-content">
+            <span class="close-popup" onclick="closePopup()">&times;</span>
+            <img src="https://www.fcbarcelona.com/fcbarcelona/photo/2024/10/26/89447e12-29a5-4290-827c-9b160241e57c/Lamine-gol-Madrid.jpg" alt="Lamine" class="popup-header-img">
+            <div class="popup-body">
+                <div class="popup-title">¡ANÁLISIS EXCLUSIVOS!</div>
+                <p>Suscríbete para recibir los resúmenes tácticos de cada partido de Lamine directamente en tu email.</p>
+                <form id="popupForm" action="https://buttondown.com/api/emails/embed-subscribe/lamine_yamal_brilla" method="post" class="popup-form">
+                    <input type="email" name="email" placeholder="Tu email de fan..." required />
+                    <input type="submit" value="¡Suscribirme ahora!" />
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const popup = document.getElementById('matchPopup');
+        function closePopup() {
+            popup.style.display = 'none';
+            localStorage.setItem('popupLamineVisto', 'true');
+        }
+        document.getElementById('popupForm').onsubmit = function() {
+            localStorage.setItem('popupLamineVisto', 'true');
+        };
+        window.onload = function() {
+            if (!localStorage.getItem('popupLamineVisto')) {
+                setTimeout(function() { popup.style.display = 'flex'; }, 3000);
+            }
+        };
+    </script>
 </body>
 </html>
