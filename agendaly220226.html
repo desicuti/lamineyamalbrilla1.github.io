@@ -146,7 +146,7 @@
             font-size: 0.9rem;
         }
 
-        /* --- SECCIÓN FINALISSIMA (FUERA DE TIMELINE) --- */
+        /* --- SECCIÓN FINALISSIMA --- */
         .finalissima-section {
             max-width: 900px;
             width: 100%;
@@ -262,6 +262,90 @@
             box-shadow: 10px 10px 0px var(--negro);
         }
 
+        /* --- POPUP ESTILO AGENDA --- */
+        .popup-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            padding: 20px;
+        }
+
+        .popup-content {
+            background: white;
+            width: 100%;
+            max-width: 450px;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            border: 4px solid var(--negro); /* Borde grueso estilo agenda */
+            text-align: center;
+            box-shadow: 15px 15px 0px var(--negro);
+            animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes popIn {
+            from { opacity: 0; transform: scale(0.5); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .popup-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 4px solid var(--negro);
+        }
+
+        .popup-body { padding: 30px; }
+
+        .close-popup {
+            position: absolute;
+            top: 15px; right: 15px;
+            color: white; font-size: 1.8rem;
+            cursor: pointer;
+            background: var(--negro);
+            width: 40px; height: 40px;
+            border-radius: 10px;
+            display: flex; justify-content: center; align-items: center;
+            z-index: 10;
+            border: 2px solid white;
+        }
+
+        .popup-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .popup-form input[type="email"] {
+            padding: 15px;
+            border: 2px solid var(--negro);
+            border-radius: 10px;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .popup-form input[type="submit"] {
+            background: var(--granate-claro);
+            color: var(--negro);
+            padding: 15px;
+            border: 2px solid var(--negro);
+            border-radius: 10px;
+            font-weight: 900;
+            text-transform: uppercase;
+            cursor: pointer;
+            box-shadow: 4px 4px 0px var(--negro);
+            transition: 0.2s;
+        }
+
+        .popup-form input[type="submit"]:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px var(--negro);
+        }
+
         @media screen and (max-width: 768px) {
             .timeline::after { left: 31px; }
             .match-container { width: 100%; padding-left: 70px; padding-right: 25px; }
@@ -322,51 +406,73 @@
 
     <section class="finalissima-section">
         <h2 style="text-transform: uppercase; letter-spacing: 2px;">Y más adelante: ¡La Finalissima!</h2>
-        
         <div class="finalissima-card">
             <img src="https://assets.goal.com/images/v3/blt3def9ac1e86ddb84/GOAL%20-%20Multiple%20Images%20-%202%20Split%20-%20Facebook(110).jpg?auto=webp&format=pjpg&width=3840&quality=60" class="finalissima-img" alt="Finalissima 2026 España vs Argentina">
-            
             <h3 class="finalissima-title">Finalissima 2026</h3>
-            
             <div style="padding: 20px; font-size: 1.1rem; border-bottom: 1px solid #ddd;">
-                La Finalissima 2026 enfrentará a las selecciones de <strong>España</strong> (campeona de la Eurocopa) y <strong>Argentina</strong> (campeona de la Copa América).
+                La Finalissima 2026 enfrentará a las selecciones de <strong>España</strong> (campeona) y <strong>Argentina</strong>.
             </div>
-
             <div class="finalissima-details">
-                <div class="detail-item">
-                    <i class="fas fa-calendar-day"></i>
-                    <div><strong>Fecha</strong><br>27 de marzo de 2026</div>
-                </div>
-                <div class="detail-item">
-                    <i class="fas fa-stadium"></i>
-                    <div><strong>Sede</strong><br>Estadio Lusail, Doha (Catar)</div>
-                </div>
-                <div class="detail-item">
-                    <i class="fas fa-clock"></i>
-                    <div><strong>Horario</strong><br>19:00 CET / 21:00 Local</div>
-                </div>
+                <div class="detail-item"><i class="fas fa-calendar-day"></i><div><strong>Fecha</strong><br>27 de marzo de 2026</div></div>
+                <div class="detail-item"><i class="fas fa-university"></i><div><strong>Sede</strong><br>Estadio Lusail, Doha</div></div>
+                <div class="detail-item"><i class="fas fa-clock"></i><div><strong>Horario</strong><br>19:00 CET</div></div>
             </div>
         </div>
     </section>
 
-    <section class="video-section" id="musica">
-        <div class="container">
-            <h2>Nueva Canción</h2>
-            <a href="https://youtu.be/gOcEXGiGzAc" target="_blank" class="video-thumbnail-container">
-                <img src="https://i9.ytimg.com/vi_webp/gOcEXGiGzAc/maxresdefault.webp?v=695d2ebc&sqp=CNzx7cwG&rs=AOn4CLBXSzCaZrFOWJQkTzpJTmz7emwpsw" alt="Nueva Canción Lamine Yamal">
-                <div class="play-overlay">
-                    <i class="fas fa-music"></i>
-                </div>
-            </a>
-            <p class="video-caption">Escucha mi nuevo tema musical oficial</p>
-        </div>
+    <section class="video-section">
+        <h2>Nueva Canción</h2>
+        <a href="https://youtu.be/gOcEXGiGzAc" target="_blank" class="video-thumbnail-container">
+            <img src="https://i.ytimg.com/vi/gOcEXGiGzAc/maxresdefault.jpg" alt="Canción Lamine">
+            <div class="play-overlay"><i class="fas fa-music"></i></div>
+        </a>
     </section>
 
     <div class="btn-container">
         <a href="https://desicuti.github.io/lamineyamalbrilla1.github.io/index.html" class="btn-volver">
-            <i class="fas fa-arrow-left"></i> Volver al inicio
+            <i class="fas fa-arrow-left"></i> Inicio
         </a>
     </div>
+
+    <div class="popup-overlay" id="agendaPopup">
+        <div class="popup-content">
+            <span class="close-popup" onclick="closePopup()">&times;</span>
+            <img src="https://www.fcbarcelona.com/fcbarcelona/photo/2025/05/27/9f68a451-d22b-48f0-a00d-9e816606b1c6/lamine-mans-obertes-gol.jpg" alt="Lamine Yamal" class="popup-image">
+            <div class="popup-body">
+                <h3 style="margin-bottom: 10px; text-transform: uppercase;">¿No quieres perderte nada?</h3>
+                <p style="font-size: 0.9rem; margin-bottom: 20px;">Únete a la newsletter y recibe la agenda de Lamine directamente en tu email.</p>
+                <form id="popupForm" action="https://buttondown.com/api/emails/embed-subscribe/lamine_yamal_brilla" method="post" class="popup-form">
+                    <input type="email" name="email" placeholder="Tu email aquí..." required />
+                    <input type="submit" value="¡Suscribirme ahora!" />
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const popup = document.getElementById('agendaPopup');
+        const form = document.getElementById('popupForm');
+
+        function closePopup() {
+            popup.style.display = 'none';
+            // Guardamos en la "memoria" del navegador que ya lo vio
+            localStorage.setItem('popupLamineVisto', 'true');
+        }
+
+        // Si el usuario envía el formulario, también marcamos como visto
+        form.onsubmit = function() {
+            localStorage.setItem('popupLamineVisto', 'true');
+        };
+
+        window.onload = function() {
+            // Comprobamos si la "memoria" ya tiene el registro
+            if (!localStorage.getItem('popupLamineVisto')) {
+                setTimeout(function() {
+                    popup.style.display = 'flex';
+                }, 2000); // Aparece a los 2 segundos
+            }
+        };
+    </script>
 
 </body>
 </html>
