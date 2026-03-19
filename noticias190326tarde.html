@@ -131,17 +131,24 @@
             box-shadow: 12px 12px 0px var(--barca-blue);
         }
 
-        .bottom-grid {
+        .curiosity-section {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: 1fr 1fr;
             background: var(--black);
             gap: 4px;
             border-bottom: 4px solid var(--black);
         }
 
-        .bottom-item {
-            padding: 40px;
+        .curiosity-item {
+            padding: 50px;
             background: var(--bg-yellow);
+        }
+
+        .full-width-curiosity {
+            grid-column: span 2;
+            background: var(--white);
+            padding: 40px 50px;
+            border-bottom: 4px solid var(--black);
         }
 
         .navigation-buttons {
@@ -181,17 +188,11 @@
 
         .footer-logo { font-family: 'Archivo Black', sans-serif; font-size: 4rem; }
 
-        /* Estilo para los datos financieros */
-        .finance-tag {
-            font-family: 'Archivo Black';
-            color: var(--barca-red);
-            font-size: 1.4rem;
-        }
-
         @media (max-width: 1000px) {
-            .main-grid, .bottom-grid { grid-template-columns: 1fr; }
+            .main-grid, .curiosity-section { grid-template-columns: 1fr; }
+            .full-width-curiosity { grid-column: span 1; }
             .news-box { border-right: none; border-bottom: 4px solid var(--black); }
-            header, .news-box, .sidebar, .bottom-item { padding: 30px 20px; }
+            header, .news-box, .sidebar, .curiosity-item, .full-width-curiosity { padding: 30px 20px; }
             h2 { font-size: 2.8rem; }
             .navigation-buttons { flex-direction: column; }
         }
@@ -245,25 +246,27 @@
             </div>
 
             <span class="badge red">MERCADO INMOBILIARIO</span>
-            <p>El "304" busca nueva residencia. Ha mostrado interés firme en la antigua mansión de Piqué y Shakira, una operación valorada en <strong>9,5 millones de libras</strong>.</p>
+            <p>Lamine Yamal estrenó y mostró en redes sociales su nueva residencia, la antigua mansión de Piqué y Shakira, una operación valorada en <strong>9,5 millones de libras</strong>.</p>
         </div>
     </section>
 
-    <section class="bottom-grid">
-        <div class="bottom-item">
-            <span class="badge">FINANZAS</span>
-            <h3>$8 MILLONES</h3>
-            <p>A sus 18 años, su fortuna personal ya iguala su salario anual, consolidándose como la figura comercial más potente de España.</p>
+    <div class="full-width-curiosity">
+        <span class="badge gold">EXCLUSIVA</span>
+        <h2 style="font-size: 2.5rem; margin-bottom: 10px;">CURIOSIDADES SOBRE LAMINE YAMAL DEL DÍA</h2>
+    </div>
+
+    <section class="curiosity-section">
+        <div class="curiosity-item">
+            <span class="badge blue">EL SECRETO NOCTURNO</span>
+            <h3>ADICCIÓN AL SCROLL</h3>
+            <p>Una de las curiosidades más sorprendentes y recientes fue desvelada a principios de febrero de 2026 por Raphinha. El brasileño confesó que Lamine suele dormirse muy tarde, pero desmintió que fuera por salir de fiesta.</p>
+            <p><strong>El motivo:</strong> Lamine pasa horas completamente pegado a su teléfono móvil, consumiendo videos en <strong>TikTok</strong> hasta altas horas de la madrugada, conservando los hábitos típicos de cualquier joven de la "Generación Z".</p>
         </div>
-        <div class="bottom-item">
-            <span class="badge gold">BALÓN DE ORO</span>
-            <h3>RUMBO A PARÍS</h3>
-            <p>Yamal ya organiza una fiesta privada para su próxima nominación. El mundo del fútbol da por hecho que estará en el podio.</p>
-        </div>
-        <div class="bottom-item">
-            <span class="badge red">VIDA PERSONAL</span>
-            <h3>BREAKUP CONFIRMADO</h3>
-            <p>Ruptura oficial con Nicki Nicole. El jugador se defendió públicamente de los rumores: <strong>"No hubo infidelidad"</strong>.</p>
+        <div class="curiosity-item">
+            <span class="badge red">ESTRATEGIA 10</span>
+            <h3>EL MISTERIO DEL DORSAL</h3>
+            <p>En el verano de 2025, el FC Barcelona ocultó intencionadamente su número de camiseta durante el lanzamiento de las nuevas equipaciones, vendiéndolas con un <strong>símbolo misterioso</strong> impreso en la espalda.</p>
+            <p>Esta jugada maestra de marketing se mantuvo hasta su 18º cumpleaños, cuando anunciaron su renovación hasta 2031 y le entregaron oficialmente el mítico <strong>dorsal "10" de Lionel Messi</strong>.</p>
         </div>
     </section>
 
@@ -280,9 +283,6 @@
             <p>NEWSROOM VERIFIED @ 2026</p>
         </div>
     </footer>
-
-    <div style="display:none" id="newsletterPopup">
-        </div>
 
 </body>
 </html>
