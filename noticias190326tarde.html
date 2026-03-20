@@ -4,6 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lamine Yamal | THE 304 REPORT 2026</title>
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Lamine Yamal | THE 304 REPORT 2026">
+    <meta property="og:description" content="Histórico: Lamine supera a Mbappé en Champions League. Descubre las últimas noticias del 10 del Barça.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/desicuti/lamineyamalbrilla1.github.io/refs/heads/probando1/photo_5900038485266075180_y%20(1).jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Lamine Yamal | THE 304 REPORT 2026">
+    <meta name="twitter:description" content="Histórico: Lamine supera a Mbappé en Champions League.">
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/desicuti/lamineyamalbrilla1.github.io/refs/heads/probando1/photo_5900038485266075180_y%20(1).jpg">
+
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/desicuti/lamineyamalbrilla1.github.io/refs/heads/main/image_Pippit_202603200058.png">
+
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Outfit:wght@300;400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
@@ -16,6 +31,7 @@
             --black: #0F0F0F;
             --gray: #444444;
             --white: #ffffff;
+            --rfef-red: #E30613;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -64,7 +80,7 @@
         header {
             border-bottom: 4px solid var(--black);
             background: var(--white);
-            line-height: 0; /* Elimina espacios residuales de la imagen */
+            line-height: 0; 
         }
 
         .hero-img {
@@ -89,6 +105,20 @@
             background: var(--white);
         }
 
+        /* Sección RFEF Ancho Completo */
+        .full-width-news {
+            padding: 60px 50px;
+            background: var(--white);
+            border-bottom: 4px solid var(--black);
+        }
+
+        .kit-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
         .badge {
             display: inline-block;
             padding: 6px 14px;
@@ -103,6 +133,7 @@
         .badge.red { background: var(--barca-red); color: white; }
         .badge.blue { background: var(--barca-blue); color: white; }
         .badge.gold { background: var(--accent-gold); color: black; }
+        .badge.rfef { background: var(--rfef-red); color: white; }
 
         h2 {
             font-family: 'Archivo Black', sans-serif;
@@ -127,6 +158,12 @@
             border: 4px solid var(--black);
             margin-bottom: 25px;
             display: block;
+        }
+
+        .gallery-2-cols {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
         }
 
         .record-card {
@@ -195,10 +232,10 @@
         .footer-logo { font-family: 'Archivo Black', sans-serif; font-size: 4rem; }
 
         @media (max-width: 1000px) {
-            .main-grid, .curiosity-section { grid-template-columns: 1fr; }
+            .main-grid, .curiosity-section, .kit-grid, .gallery-2-cols { grid-template-columns: 1fr; }
             .full-width-curiosity { grid-column: span 1; }
             .news-box { border-right: none; border-bottom: 4px solid var(--black); }
-            header, .news-box, .sidebar, .curiosity-item, .full-width-curiosity { padding: 30px 20px; }
+            header, .news-box, .sidebar, .curiosity-item, .full-width-curiosity, .full-width-news { padding: 30px 20px; }
             header { padding: 0; }
             h2 { font-size: 2.8rem; }
             .navigation-buttons { flex-direction: column; }
@@ -257,6 +294,32 @@
             <p>Lamine Yamal estrenó y mostró en redes sociales su nueva residencia, la antigua mansión de Piqué y Shakira, una operation valorada en <strong>9,5 millones de libras</strong>.</p>
             <img src="https://raw.githubusercontent.com/desicuti/lamineyamalbrilla1.github.io/refs/heads/probando1/651922270_18429109717137783_8515275709332035038_n%20(2).jpg" alt="Mansión Lamine Yamal" class="news-img">
         </div>
+    </section>
+
+    <section class="full-width-news">
+        <span class="badge rfef">ESPECIAL MUNDIAL 2026</span>
+        <h2 style="font-size: 3rem;">LA PIEL DE LA ROJA: BLANCO ROTO Y ESTILO RETRO</h2>
+        <p>La Selección Española apostará por un tono blanco roto para el Mundial 2026. Ambas camisetas de Adidas ya han sido reveladas y presentan diseños que combinan la tradición del equipo con toques retro y elegantes.</p>
+
+        <div class="kit-grid">
+            <div>
+                <h3>PRIMERA EQUIPACIÓN</h3>
+                <img src="https://scontent.fmad8-1.fna.fbcdn.net/v/t39.30808-6/578266048_842940451663813_4095675689685088607_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=7b2446&_nc_ohc=iJ5Aq8F4Wc0Q7kNvwFiQyB5&_nc_oc=AdpcZT29mqKlnXNnbjMX4kFXzbpH2Q6XaaH54_YSxVzadtY-zyv0e4J89V5eo4s5C_8&_nc_zt=23&_nc_ht=scontent.fmad8-1.fna&_nc_gid=JBm3vWP7AdDH2xteFKjozQ&_nc_ss=7a30f&oh=00_Afx6Q66v4WGZdL34qNsiczC2fVngtJvxtrzDvqG4SVN9lA&oe=69C2D609" alt="Primera Equipación España 2026" class="news-img">
+                <p>La camiseta principal mantiene la esencia clásica con un cuerpo <strong>rojo intenso</strong> y mangas azul marino oscuro. Las tres franjas de Adidas en los hombros llevan los colores de la bandera, y el torso luce finas líneas amarillas punteadas.</p>
+            </div>
+
+            <div>
+                <h3>SEGUNDA EQUIPACIÓN</h3>
+                <div class="gallery-2-cols">
+                    <img src="https://scontent.fmad8-1.fna.fbcdn.net/v/t39.30808-6/653047977_122124341139218179_4385866030838952418_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=DUcj7OGmVPwQ7kNvwHJDYPC&_nc_oc=Adroj00u1XfbprSu-vpgJeh8HZ1kXqNFnfNt1NRdgqXwrWPZBWzDLnLEZo-Eb3Ns8Pc&_nc_zt=23&_nc_ht=scontent.fmad8-1.fna&_nc_gid=cNoh1SKbBHys5YSqqJ-9dQ&_nc_ss=7a30f&oh=00_AfzhdRxBtnVVWX1bjH_mXkdQUBq9LyTFh6YXy-C7HpCwhQ&oe=69C2C06F" alt="Lamine Yamal España Blanca 1" class="news-img">
+                    <img src="https://scontent.fmad8-1.fna.fbcdn.net/v/t39.30808-6/652933420_122124341085218179_982827734988687186_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=kdJElFR98sMQ7kNvwEYOpqh&_nc_oc=AdoIwUDMFtalASB_BiUP8rKFeWhPvCBJgi3zSiFPFJ5BgGBlFqFYJ5ZpyX3FTMbIgmc&_nc_zt=23&_nc_ht=scontent.fmad8-1.fna&_nc_gid=e9RR43V3W0t60kS0BVpB2w&_nc_ss=7a30f&oh=00_AfzP0e26hcEgohrU1oKivaM7vm4ZmXKsPAtt3grE2plX1Q&oe=69C2BF99" alt="Lamine Yamal España Blanca 2" class="news-img">
+                </div>
+                <p>Estética sofisticada en <strong>blanco roto/beige</strong> con el logo retro "Trefoil". El cuello en pico y bordes granates con toques dorados completan un diseño inspirado en la herencia literaria española.</p>
+            </div>
+        </div>
+        <p style="background: var(--black); color: white; padding: 20px; font-weight: 700; text-align: center; margin-top: 20px;">
+            Lanzamiento oficial de la segunda equipación: 20 de marzo de 2026.
+        </p>
     </section>
 
     <div class="full-width-curiosity">
