@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diario Deportivo - Lamine Yamal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Roboto+Condensed:wght@400;700&family=Libre+Franklin:wght@300;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --barca-red: #A50044;
+            --barca-blue: #004D98;
+            --dark-text: #1a1a1a;
+            --accent-gold: #EDBB00;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            font-family: 'Libre Franklin', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--dark-text);
+        }
+
+        /* --- Header / Periódico --- */
+        header {
+            background: white;
+            border-bottom: 4px solid var(--dark-text);
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .newspaper-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            margin: 0;
+        }
+
+        .date-bar {
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            margin: 10px auto;
+            max-width: 1200px;
+            padding: 5px 0;
+            font-family: 'Roboto Condensed', sans-serif;
+            font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* --- Contenedor Principal --- */
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        /* --- Noticia Principal --- */
+        .main-story {
+            background: white;
+            padding: 30px;
+            border: 1px solid #ddd;
+        }
+
+        .kicker {
+            color: var(--barca-red);
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            line-height: 1;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .lead {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #444;
+            line-height: 1.4;
+            margin-bottom: 20px;
+            border-left: 5px solid var(--barca-blue);
+            padding-left: 15px;
+        }
+
+        .article-body {
+            column-count: 2;
+            column-gap: 30px;
+            text-align: justify;
+            line-height: 1.6;
+        }
+
+        .quote-box {
+            background: #f9f9f9;
+            border: 1px solid #eee;
+            padding: 20px;
+            margin: 20px 0;
+            font-style: italic;
+            position: relative;
+        }
+
+        .quote-box::before {
+            content: "“";
+            font-size: 4rem;
+            color: var(--accent-gold);
+            position: absolute;
+            top: -10px;
+            left: 5px;
+            opacity: 0.5;
+        }
+
+        /* --- Sidebar --- */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .sidebar-box {
+            background: var(--barca-blue);
+            color: white;
+            padding: 20px;
+        }
+
+        .sidebar-box h3 {
+            margin-top: 0;
+            border-bottom: 2px solid var(--accent-gold);
+            padding-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .bullet-point {
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 10px;
+        }
+
+        .highlight-card {
+            background: var(--barca-red);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* --- Estilo para Tablet/Móvil --- */
+        @media (max-width: 900px) {
+            .container { grid-template-columns: 1fr; }
+            .article-body { column-count: 1; }
+            .newspaper-title { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1 class="newspaper-title">The Football Times</h1>
+    <div class="date-bar">
+        <span>EDICIÓN ESPECIAL</span>
+        <span>BARCELONA, ABRIL 2026</span>
+        <span>VOL. 304</span>
+    </div>
+</header>
+
+<div class="container">
+    <main class="main-story">
+        <span class="kicker">Liderazgo y Carácter</span>
+        <h1>Lamine Yamal: El heredero que no teme a la tormenta</h1>
+        
+        <p class="lead">
+            Tras la amarga eliminación ante el Atlético de Madrid, la perla de 18 años se erige como el capitán espiritual de un Barça que mira al futuro con ambición.
+        </p>
+
+        <div class="article-body">
+            <p>
+                <strong>Hansi Flick</strong> no escatima en elogios. El técnico alemán ha subrayado la importancia vital de Yamal en el esquema blaugrana, destacando su capacidad para romper defensas: <em>"Estamos muy contentos con él, su creatividad es lo que el equipo necesita"</em>.
+            </p>
+
+            <div class="quote-box">
+                "Rendirse no es una opción. Somos el Barça y volveremos a donde pertenecemos."
+            </div>
+
+            <p>
+                A pesar del duro golpe en Champions con un global de 3–2, Yamal ha dado un paso al frente. No solo en el campo, sino ante los micrófonos. Su desafío directo a Simeone en la previa —pidiendo un "uno contra uno"— demostró que la presión no existe en su diccionario.
+            </p>
+
+            <p>
+                Incluso leyendas como <strong>Neymar</strong> se han rendido a sus pies, calificándolo como una de las mayores sensaciones adolescentes de la historia: <em>"Está destinado a ganar el Balón de Oro"</em>, aseguró el astro brasileño.
+            </p>
+
+            <p>
+                Mientras tanto, en La Liga, el joven crack sigue dictando sentencia. Su actuación en el derbi ante el Espanyol, con gol incluido en la goleada 4-1, mantiene al equipo con una cómoda ventaja de 9 puntos sobre el Real Madrid.
+            </p>
+        </div>
+    </main>
+
+    <aside class="sidebar">
+        <div class="sidebar-box">
+            <h3>Puntos Clave</h3>
+            <div class="bullet-point">
+                <strong>Promesa Firme:</strong> Reafirmó su compromiso de ganar la Champions con el Barça. Cada error es una lección.
+            </div>
+            <div class="bullet-point">
+                <strong>Sin Miedo:</strong> Declaró que carga con peso desde pequeño y que el escenario del Metropolitano no lo intimidó.
+            </div>
+            <div class="bullet-point">
+                <strong>Estatus:</strong> Ya es el líder mediático y deportivo del club con apenas 18 años.
+            </div>
+        </div>
+
+        <div class="highlight-card">
+            <h2 style="margin:0; font-size: 3rem;">18</h2>
+            <p style="text-transform: uppercase; font-weight: bold;">Años de edad</p>
+            <hr style="border-color: rgba(255,255,255,0.3)">
+            <p>"La mayor sensación adolescente de la historia"</p>
+            <small>— Neymar Jr.</small>
+        </div>
+
+        <div style="background: #ddd; padding: 20px; border: 1px solid #ccc;">
+            <h4 style="margin-top:0">ÚLTIMA HORA</h4>
+            <p style="font-size: 0.9rem;">El Barça mantiene 9 puntos de ventaja tras la exhibición de Yamal en el derbi catalán.</p>
+        </div>
+    </aside>
+</div>
+
+</body>
+</html>
