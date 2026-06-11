@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balón Brilla - Guión del Stream Interactivo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --amarillo-fondo: #F4CE14;
+            --amarillo-brillante: #FFF000;
+            --rojo-principal: #AA1515;
+            --rojo-oscuro: #5C0606;
+            --blanco-tarjeta: #FFFFFF;
+            --texto-oscuro: #222222;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--amarillo-fondo);
+            color: var(--rojo-principal);
+            padding: 20px;
+            background-image: radial-gradient(circle at 30% 20%, var(--amarillo-brillante) 0%, transparent 50%);
+        }
+
+        header {
+            text-align: center;
+            padding: 25px;
+            margin-bottom: 30px;
+            background: var(--rojo-principal);
+            border-radius: 15px;
+            border-bottom: 5px solid var(--rojo-oscuro);
+            box-shadow: 0 6px 20px rgba(170,21,21,0.3);
+        }
+
+        header h1 {
+            font-weight: 800;
+            font-size: 3rem;
+            letter-spacing: 2px;
+            color: white;
+            text-shadow: 3px 3px 0px var(--rojo-oscuro);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: var(--amarillo-fondo);
+            margin-top: 5px;
+            font-weight: 600;
+        }
+
+        .badge {
+            background-color: white;
+            color: var(--rojo-principal);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 800;
+            display: inline-block;
+            margin-top: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+        }
+
+        .grid-principal {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 25px;
+        }
+
+        @media (max-width: 1024px) {
+            .grid-principal {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .columna {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .seccion-card {
+            background-color: var(--blanco-tarjeta);
+            border-radius: 15px;
+            padding: 25px;
+            border: 3px solid var(--rojo-principal);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .seccion-card h2 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            background-color: var(--rojo-principal);
+            padding: 10px 15px;
+            border-radius: 8px;
+        }
+
+        /* ESTILOS NOTICIAS */
+        .bloque-noticia {
+            background: #FFFDF0;
+            border-radius: 10px;
+            padding: 18px;
+            margin-bottom: 20px;
+            border: 2px solid rgba(170, 21, 21, 0.2);
+            border-top: 6px solid var(--rojo-principal);
+        }
+
+        .bloque-noticia h3 {
+            color: var(--rojo-oscuro);
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .sub-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        @media (max-width: 600px) {
+            .sub-info {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .sub-tarjeta {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            border: 1px solid rgba(170, 21, 21, 0.15);
+            color: var(--texto-oscuro);
+        }
+
+        .sub-tarjeta h4 {
+            color: var(--rojo-principal);
+            margin-bottom: 8px;
+            font-size: 1.05rem;
+            border-bottom: 1px solid rgba(170, 21, 21, 0.1);
+            padding-bottom: 3px;
+        }
+
+        .frase-resumen {
+            background: rgba(170, 21, 21, 0.05);
+            border: 2px dashed var(--rojo-principal);
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-style: italic;
+            font-size: 1rem;
+            text-align: center;
+            color: var(--rojo-oscuro);
+        }
+
+        ul.puntos-noticia {
+            list-style: none;
+            color: var(--texto-oscuro);
+        }
+
+        ul.puntos-noticia li {
+            position: relative;
+            padding-left: 22px;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        ul.puntos-noticia li::before {
+            content: "➔";
+            color: var(--rojo-principal);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        /* CUADRO PREGUNTA PARA EL CHAT */
+        .cuadro-chat {
+            background: var(--rojo-principal);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 6px solid var(--rojo-oscuro);
+            box-shadow: 0 4px 10px rgba(170,21,21,0.2);
+        }
+        
+        .cuadro-chat strong {
+            display: block;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+            color: var(--amarillo-fondo);
+        }
+
+        .cuadro-chat p {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* MÓDULO DE ENCUESTAS EN VIVO */
+        .contenedor-encuesta {
+            background: white;
+            border: 2px solid var(--rojo-principal);
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+
+        .contenedor-encuesta h5 {
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+            color: var(--rojo-oscuro);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .opcion-encuesta {
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        .opcion-encuesta:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-opcion {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--texto-oscuro);
+            margin-bottom: 3px;
+        }
+
+        .barra-progreso {
+            background: #eee;
+            height: 12px;
+            border-radius: 6px;
+            overflow: hidden;
+            width: 100%;
+            border: 1px solid #ddd;
+        }
+
+        .llenado-progreso {
+            background: linear-gradient(90deg, var(--amarillo-fondo), var(--rojo-principal));
+            height: 100%;
+            width: 0%; /* Empieza estrictamente en 0% */
+            transition: width 0.4s ease;
+        }
+
+        /* CHECKLIST DE JUEGOS */
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            background: #FFFDF0;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            user-select: none;
+            border: 2px solid rgba(170, 21, 21, 0.2);
+        }
+
+        .checklist-item:hover {
+            background: var(--amarillo-brillante);
+            border-color: var(--rojo-principal);
+        }
+
+        .checklist-item input[type="checkbox"] {
+            display: none;
+        }
+
+        .custom-checkbox {
+            width: 25px;
+            height: 25px;
+            border: 3px solid var(--rojo-principal);
+            border-radius: 6px;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+        }
+
+        .checklist-item input[type="checkbox"]:checked + .custom-checkbox {
+            background-color: var(--rojo-principal);
+            color: white;
+        }
+
+        .checklist-item input[type="checkbox"]:checked + .custom-checkbox::before {
+            content: "\f00c";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            font-size: 0.9rem;
+        }
+
+        .game-details {
+            flex-grow: 1;
+        }
+
+        .game-title {
+            font-weight: 800;
+            font-size: 1.15rem;
+            color: var(--rojo-oscuro);
+        }
+
+        .game-meta {
+            font-size: 0.8rem;
+            color: white;
+            display: flex;
+            gap: 10px;
+            margin-top: 4px;
+        }
+
+        .game-meta span {
+            background: var(--rojo-principal);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .checklist-item input[type="checkbox"]:checked ~ .game-details .game-title {
+            text-decoration: line-through;
+            opacity: 0.4;
+        }
+
+        /* VÍDEOS DE REACCIÓN */
+        .contenedor-videos {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .video-item {
+            background: #FFFDF0;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 2px solid var(--rojo-principal);
+        }
+
+        .video-titulo-incrustado {
+            padding: 12px 15px;
+            background: var(--rojo-principal);
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .thumbnail-container {
+            position: relative;
+            width: 100%;
+            display: block;
+            overflow: hidden;
+            background-color: #000;
+        }
+
+        .thumbnail-container::after {
+            content: "";
+            display: block;
+            padding-bottom: 56.25%;
+        }
+
+        .thumbnail-container.short {
+            padding-bottom: 120%;
+        }
+
+        .thumbnail-container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .thumbnail-container:hover img {
+            transform: scale(1.04);
+        }
+
+        .play-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--rojo-principal);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            transition: all 0.3s ease;
+            z-index: 2;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+        }
+
+        .thumbnail-container:hover .play-overlay {
+            background: var(--amarillo-fondo);
+            color: var(--rojo-principal);
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        /* CAJA DE TIKTOK SIN SCRIPTS */
+        .tiktok-preview-box {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(180deg, #121212 0%, #222 100%);
+        }
+
+        .tiktok-preview-box p {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>BALÓN BRILLA</h1>
+        <p><i class="fa-solid fa-satellite-dish"></i> PANEL DE CONTROL INTERACTIVO EN VIVO</p>
+        <span class="badge">Mundial 2026 Especial</span>
+    </header>
+
+    <div class="grid-principal">
+        
+        <div class="columna">
+            <div class="seccion-card">
+                <h2><i class="fa-solid fa-newspaper"></i> 1. Opinar sobre Últimas Noticias</h2>
+                
+                <div class="bloque-noticia">
+                    <h3><i class="fa-solid fa-trophy"></i> Selección Española (Rumores Mundial 2026)</h3>
+                    <p style="font-size: 0.95rem; margin-bottom: 12px; color: var(--texto-oscuro);">
+                        Clasificación matemáticamente cerrada tras empatar en Sevilla contra Turquía. El bloque ya está concentrado con rumbo al campamento base de EE.UU.
+                    </p>
+                    <ul class="puntos-noticia">
+                        <li><strong>Lista definitiva de De la Fuente:</strong> 26 convocados (Lamine, Nico Williams, etc.).</li>
+                        <li><strong>Polémica:</strong> Cero jugadores del Real Madrid en la lista oficial.</li>
+                        <li><strong>Debate de porteros:</strong> ¿Unai Simón o David Raya?</li>
+                    </ul>
+
+                    <div class="cuadro-chat">
+                        <strong><i class="fa-solid fa-comments"></i> Pregunta para el chat:</strong>
+                        <p>¿Quién debe ser el portero titular indiscutible en el Mundial: Unai Simón o David Raya?</p>
+                    </div>
+
+                    <div class="contenedor-encuesta">
+                        <h5><i class="fa-solid fa-chart-bar"></i> Votación del Chat (Haz clic para sumar votos):</h5>
+                        <div class="opcion-encuesta" onclick="votar('esp-op1', 'esp-op2')">
+                            <div class="info-opcion"><span>Unai Simón</span><span id="esp-op1-txt">0% (0 votos)</span></div>
+                            <div class="barra-progreso"><div id="esp-op1-bar" class="llenado-progreso"></div></div>
+                        </div>
+                        <div class="opcion-encuesta" onclick="votar('esp-op2', 'esp-op1')">
+                            <div class="info-opcion"><span>David Raya</span><span id="esp-op2-txt">0% (0 votos)</span></div>
+                            <div class="barra-progreso"><div id="esp-op2-bar" class="llenado-progreso"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bloque-noticia">
+                    <h3><i class="fa-solid fa-bolt"></i> Barça vs Real Madrid</h3>
+                    <div class="sub-info">
+                        <div class="sub-tarjeta">
+                            <h4>FC Barcelona</h4>
+                            <p>Inercia muy positiva con proyecto joven (Pedri, Gavi, Lamine). Rumores de interés por Rashford.</p>
+                        </div>
+                        <div class="sub-tarjeta">
+                            <h4>Real Madrid</h4>
+                            <p>Dudas tácticas e internas sobre el encaje definitivo de Mbappé tras los últimos Clásicos.</p>
+                        </div>
+                    </div>
+
+                    <div class="cuadro-chat">
+                        <strong><i class="fa-solid fa-comments"></i> Pregunta para el chat:</strong>
+                        <p>¿Pensáis que Mbappé está limitando el juego del Real Madrid o es solo falta de adaptación?</p>
+                    </div>
+
+                    <div class="contenedor-encuesta">
+                        <h5><i class="fa-solid fa-chart-bar"></i> Votación del Chat:</h5>
+                        <div class="opcion-encuesta" onclick="votar('cl-op1', 'cl-op2')">
+                            <div class="info-opcion"><span>Sí, descompensa el equipo</span><span id="cl-op1-txt">0% (0 votos)</span></div>
+                            <div class="barra-progreso"><div id="cl-op1-bar" class="llenado-progreso"></div></div>
+                        </div>
+                        <div class="opcion-encuesta" onclick="votar('cl-op2', 'cl-op1')">
+                            <div class="info-opcion"><span>No, es cuestión de tiempo</span><span id="cl-op2-txt">0% (0 votos)</span></div>
+                            <div class="barra-progreso"><div id="cl-op2-bar" class="llenado-progreso"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bloque-noticia">
+                    <h3><i class="fa-solid fa-fire"></i> Mercado de Fichajes Bomba</h3>
+                    <div class="sub-info">
+                        <div class="sub-tarjeta">
+                            <h4>Julián Álvarez</h4>
+                            <p>Rumores de sondeo del Barça, aunque el Atlético remite a su millonaria cláusula de rescisión.</p>
+                        </div>
+                        <div class="sub-tarjeta">
+                            <h4>Erling Haaland</h4>
+                            <p>Especulaciones constantes sobre su llegada a LaLiga en el futuro si sale del Manchester City.</p>
+                        </div>
+                    </div>
+
+                    <div class="cuadro-chat">
+                        <strong><i class="fa-solid fa-comments"></i> Pregunta para el chat:</strong>
+                        <p>¿A qué fichaje bomba le dais más credibilidad para este verano?</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="columna">
+            
+            <div class="seccion-card">
+                <h2><i class="fa-solid fa-gamepad"></i> 2. Jugar a Juegos</h2>
+                
+                <label class="checklist-item">
+                    <input type="checkbox">
+                    <div class="custom-checkbox"></div>
+                    <div class="game-details">
+                        <div class="game-title">FC Mobile</div>
+                        <div class="game-meta"><span>Tablet</span></div>
+                    </div>
+                </label>
+
+                <label class="checklist-item">
+                    <input type="checkbox">
+                    <div class="custom-checkbox"></div>
+                    <div class="game-details">
+                        <div class="game-title">e-Football</div>
+                        <div class="game-meta"><span>Tablet</span></div>
+                    </div>
+                </label>
+
+                <label class="checklist-item">
+                    <input type="checkbox">
+                    <div class="custom-checkbox"></div>
+                    <div class="game-details">
+                        <div class="game-title">Soccer Manager 2026</div>
+                        <div class="game-meta"><span>Windows</span></div>
+                    </div>
+                </label>
+            </div>
+
+            <div class="seccion-card">
+                <h2><i class="fa-brands fa-twitch"></i> 3. Reaccionar a Vídeos</h2>
+                
+                <div class="contenedor-videos">
+                    
+                    <div class="video-item">
+                        <div class="video-titulo-incrustado"><i class="fa-solid fa-mobile-screen-button"></i> Short: Marc Cucurella</div>
+                        <a href="https://www.youtube.com/watch?v=DnBuRnl44m8" target="_blank" class="thumbnail-container short">
+                            <div class="play-overlay"><i class="fa-solid fa-play"></i></div>
+                            <img src="https://img.youtube.com/vi/DnBuRnl44m8/maxresdefault.jpg" alt="Cucurella">
+                        </a>
+                    </div>
+
+                    <div class="video-item">
+                        <div class="video-titulo-incrustado" style="background-color: #fe2c55;">
+                            <i class="fa-brands fa-tiktok"></i> TikTok: @vidamiserable
+                        </div>
+                        <a href="https://www.tiktok.com/@vidamiserable/video/7633213857703611669" target="_blank" class="thumbnail-container short">
+                            <div class="play-overlay" style="background: #fe2c55;"><i class="fa-solid fa-play"></i></div>
+                            <div class="tiktok-preview-box">
+                                <i class="fa-brands fa-tiktok" style="font-size: 3.5rem; color: #25f4ee; text-shadow: 2px 2px #fe2c55; margin-bottom: 10px;"></i>
+                                <p style="font-weight: 800; font-size: 1.2rem;">@vidamiserable</p>
+                                <p style="font-size: 0.85rem; opacity: 0.8; margin-top: 5px;">Click para abrir en pestaña nueva</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="video-item">
+                        <div class="video-titulo-incrustado"><i class="fa-solid fa-video"></i> Video 2: Análisis Táctico</div>
+                        <a href="https://www.youtube.com/watch?v=qUGPKaA7_Es" target="_blank" class="thumbnail-container">
+                            <div class="play-overlay"><i class="fa-solid fa-play"></i></div>
+                            <img src="https://img.youtube.com/vi/qUGPKaA7_Es/maxresdefault.jpg" alt="Análisis">
+                        </a>
+                    </div>
+
+                    <div class="video-item">
+                        <div class="video-titulo-incrustado"><i class="fa-solid fa-video"></i> Video 3: Actualidad Fútbol</div>
+                        <a href="https://www.youtube.com/watch?v=tOcyXH1l99I" target="_blank" class="thumbnail-container">
+                            <div class="play-overlay"><i class="fa-solid fa-play"></i></div>
+                            <img src="https://img.youtube.com/vi/tOcyXH1l99I/maxresdefault.jpg" alt="Actualidad">
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        // Almacén de votos local en memoria para que inicie de manera estricta en 0 votos y 0%
+        const votos = {
+            'esp-op1': 0, 'esp-op2': 0,
+            'cl-op1': 0, 'cl-op2': 0
+        };
+
+        function votar(idSeleccionado, idAlternativo) {
+            // Añadir un voto a la opción clickada
+            votos[idSeleccionado]++;
+            
+            const totalVotos = votos[idSeleccionado] + votos[idAlternativo];
+            
+            // Calcular porcentajes redondeados
+            const pctSeleccionado = Math.round((votos[idSeleccionado] / totalVotos) * 100);
+            const pctAlternativo = Math.round((votos[idAlternativo] / totalVotos) * 100);
+            
+            // Actualizar interfaz gráfica de la opción clickada
+            document.getElementById(`${idSeleccionado}-txt`).innerText = `${pctSeleccionado}% (${votos[idSeleccionado]} votos)`;
+            document.getElementById(`${idSeleccionado}-bar`).style.width = `${pctSeleccionado}%`;
+            
+            // Actualizar interfaz gráfica de la opción contraria
+            document.getElementById(`${idAlternativo}-txt`).innerText = `${pctAlternativo}% (${votos[idAlternativo]} votos)`;
+            document.getElementById(`${idAlternativo}-bar`).style.width = `${pctAlternativo}%`;
+        }
+    </script>
+
+</body>
+</html>
